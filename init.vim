@@ -2,29 +2,10 @@ let mapleader=" "
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'                          " Tema
-Plug 'tpope/vim-surround'                       " Envolver texto con símbolos
-Plug 'romainl/vim-cool'                         " Desmarcar búsquedas
-Plug 'vim-airline/vim-airline'                  " Barra de estado
-Plug 'preservim/nerdtree'                       " Explorador de archivos
-Plug 'junegunn/vim-easy-align'                  " Alinear en símbolo
-Plug 'preservim/nerdcommenter'                  " Comentar líneas
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletar
+Plug 'tpope/vim-surround'      " Envolver texto con símbolos
+Plug 'junegunn/vim-easy-align' " Alinear en símbolo
 
 call plug#end()
-
-colorscheme gruvbox
-
-set smarttab
-set cindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set noswapfile
-set colorcolumn=80
-set relativenumber
-set number
-set scrolloff=10
 
 filetype plugin on
 
@@ -32,16 +13,8 @@ filetype plugin on
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-" Mostrar explorador de archivos con ctrl+b
-nnoremap <C-b> :NERDTreeToggle<CR>
-
 " Espacio que no haga nada
 nnoremap <SPACE> <Nop>
-
-" Moverse en coc con ctrl+j, ctrl+k e insertar con enter
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -49,17 +22,20 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" Toggle comentario con <leader>cc
-map <leader>cc <Plug>NERDCommenterToggle
+" Mover editores
+nnoremap <leader>mr <Cmd>call VSCodeNotify('workbench.action.moveEditorToRightGroup')<CR>
+nnoremap <leader>ml <Cmd>call VSCodeNotify('workbench.action.moveEditorToLeftGroup')<CR>
+nnoremap <leader>md <Cmd>call VSCodeNotify('workbench.action.moveEditorToBelowGroup')<CR>
+nnoremap <leader>mu <Cmd>call VSCodeNotify('workbench.action.moveEditorToAboveGroup')<CR>
 
-" Cambiar el map default para que el de arriba funcione
-map <leader>xdlol <Plug>NERDCommenterComment
+" Peek definition
+nnoremap <leader>pd <Cmd>call VSCodeNotify('editor.action.peekDefinition')<CR>
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" Cambiar lenguaje
+nnoremap <leader>l <Cmd>call VSCodeNotify('workbench.action.editor.changeLanguageMode')<CR>
 
-" Coc extensions
-let g:coc_global_extensions = ['coc-pairs', 'coc-snippets']
+" Show hover
+nnoremap <leader>sh <Cmd>call VSCodeNotify('editor.action.showHover')<CR>
 
-" Delete trailing white spaces
-autocmd BufWritePre * :%s/\s\+$//e
+" Math preview Latex
+nnoremap <leader>mp <Cmd>call VSCodeNotify('latex-workshop.openMathPreviewPanel')<CR>
