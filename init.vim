@@ -3,7 +3,8 @@ let mapleader=" "
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'      " Envolver texto con símbolos
-Plug 'junegunn/vim-easy-align' " Alinear en símbolo
+Plug 'lervag/vimtex'           " Extras para Latex
+Plug 'godlygeek/tabular'       " Alinear texto
 
 call plug#end()
 
@@ -39,3 +40,6 @@ nnoremap <leader>sh <Cmd>call VSCodeNotify('editor.action.showHover')<CR>
 
 " Math preview Latex
 nnoremap <leader>mp <Cmd>call VSCodeNotify('latex-workshop.openMathPreviewPanel')<CR>
+
+" Alinear líneas de código a un caracter
+vnoremap <leader>aa :'<,'>Tabularize /
