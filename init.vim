@@ -2,17 +2,13 @@ let mapleader=" "
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-surround'      " Envolver texto con símbolos
-Plug 'lervag/vimtex'           " Extras para Latex
-Plug 'godlygeek/tabular'       " Alinear texto
+Plug 'tpope/vim-surround' " Envolver texto con símbolos
+Plug 'lervag/vimtex'      " Extras para Latex
+Plug 'godlygeek/tabular'  " Alinear texto
 
 call plug#end()
 
 filetype plugin on
-
-" Ignorar líneas que den la vuelta al moverse con j y k
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " Espacio que no haga nada
 nnoremap <SPACE> <Nop>
@@ -32,6 +28,9 @@ nnoremap <leader>mu <Cmd>call VSCodeNotify('workbench.action.moveEditorToAboveGr
 " Peek definition
 nnoremap <leader>pd <Cmd>call VSCodeNotify('editor.action.peekDefinition')<CR>
 
+" Go to definition
+nnoremap <leader>gd <Cmd>call VSCodeNotify('editor.action.revealDefinition')<CR>
+
 " Cambiar lenguaje
 nnoremap <leader>l <Cmd>call VSCodeNotify('workbench.action.editor.changeLanguageMode')<CR>
 
@@ -43,3 +42,6 @@ nnoremap <leader>mp <Cmd>call VSCodeNotify('latex-workshop.openMathPreviewPanel'
 
 " Alinear líneas de código a un caracter
 vnoremap <leader>aa :'<,'>Tabularize /
+
+" Quitar el highlight después de buscar
+nnoremap <leader>nh :noh<CR>
