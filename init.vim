@@ -40,8 +40,22 @@ nnoremap <leader>sh <Cmd>call VSCodeNotify('editor.action.showHover')<CR>
 " Math preview Latex
 nnoremap <leader>mp <Cmd>call VSCodeNotify('latex-workshop.openMathPreviewPanel')<CR>
 
+" Ver siguiente problema
+nnoremap <leader>vp <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
+
 " Alinear líneas de código a un caracter
 vnoremap <leader>aa :'<,'>Tabularize /
 
 " Quitar el highlight después de buscar
 nnoremap <leader>nh :noh<CR>
+
+" Buscar texto seleccionado
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Usar siempre el modo de magia en REGEX
+nnoremap / /\v
+cnoremap %s/ %s/\v
+cnoremap '<,'>s/ '<,'>s/\v
+
+" Seleccionar texto pegado
+nnoremap <leader>sp `[v`]
