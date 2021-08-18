@@ -59,3 +59,7 @@ cnoremap '<,'>s/ '<,'>s/\v
 
 " Seleccionar texto pegado
 nnoremap <leader>sp `[v`]
+
+" Navegar por softwrapped lines
+nmap j gj
+nmap k gk
