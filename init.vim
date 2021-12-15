@@ -21,7 +21,7 @@ set numberwidth=1
 set mouse=a
 set encoding=UTF-8
 set cursorline
-set completeopt=menu,menuone,noselect
+set completeopt=menu,menuone
 
 call plug#begin('~/.nvim/plugged')
 
@@ -51,6 +51,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -162,7 +163,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver' }
+local servers = { 'pyright', 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls' }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls')
     then
@@ -173,7 +174,7 @@ for _, lsp in ipairs(servers) do
         },
         cmd = { 'jdtls' }
       }
-    elseif (lsp == 'html' or lsp == 'cssls')
+    elseif (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls')
     then
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -201,6 +202,9 @@ EOF
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
+let g:UltiSnipsJumpForwardTrigger="<TAB>"
+let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
+
 " Gruvbox color theme
 colorscheme gruvbox
 let g:gruvbox_contrast_dark="hard"
@@ -216,9 +220,6 @@ highlight ColorColumn guibg=grey
 
 " Trim trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Format json file
-autocmd FileType json :command FormatJson %!jq
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
@@ -270,6 +271,9 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Select pasted text
 nnoremap <expr> <leader>sp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Search selected text
+vnoremap <leader>ss y/<C-r>"<CR>
 
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
