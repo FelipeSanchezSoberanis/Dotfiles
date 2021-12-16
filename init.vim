@@ -277,3 +277,4 @@ vnoremap <leader>ss y/<C-r>"<CR>
 
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
+
