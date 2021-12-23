@@ -22,10 +22,11 @@ set mouse=a
 set encoding=UTF-8
 set cursorline
 set completeopt=menu,menuone
+set nrformats+=alpha
 
 call plug#begin('~/.nvim/plugged')
 
-Plug 'gruvbox-community/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'sickill/vim-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
@@ -163,7 +164,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls' }
+local servers = { 'pyright', 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls', 'clangd', 'lemminx' }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls')
     then
@@ -206,8 +207,9 @@ let g:UltiSnipsJumpForwardTrigger="<TAB>"
 let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
 " Gruvbox color theme
-colorscheme gruvbox
-let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox8
+let g:gruvbox8_contrast_dark="hard"
+let g:gruvbox8_termcolors=256
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
@@ -242,6 +244,9 @@ autocmd FileType tex,latex nnoremap <buffer> <leader>toc :VimtexTocToggle<CR>
 " Markdown preview
 autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 
+" HTML preview with Bracey
+autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
+
 " Toggle nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
@@ -261,9 +266,9 @@ nnoremap <leader>cdd :CocDiagnostics<CR>
 " Word wrapping
 nnoremap <leader>ww :set wrap!<CR>
 
-" Navigate soft wrapped lines
-noremap <expr> j v:count ? 'j' : 'gj'
-noremap <expr> k v:count ? 'k' : 'gk'
+" " Navigate soft wrapped lines
+" noremap <expr> j v:count ? 'j' : 'gj'
+" noremap <expr> k v:count ? 'k' : 'gk'
 
 " Move in LSP suggestions
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"

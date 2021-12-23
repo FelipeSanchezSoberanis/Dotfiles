@@ -1,0 +1,14 @@
+global !p
+from snippet_helpers import *
+endglobal
+
+snippet bfigure
+\begin{figure}[${1:ht}]
+    \centering
+    \includegraphics[width=${2:0.8}\textwidth]{${3}}
+    \caption{${4:Caption}}
+    \label{Fig: `!p snip.rv = cleanText(t[4])`}
+\end{figure}
+$0
+endsnippet
+
