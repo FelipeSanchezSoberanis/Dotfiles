@@ -23,11 +23,14 @@ set encoding=UTF-8
 set cursorline
 set completeopt=menu,menuone
 set nrformats+=alpha
+set diffopt+=vertical
+set linebreak
 
 call plug#begin('~/.nvim/plugged')
 
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'sickill/vim-monokai'
+Plug 'ErichDonGubler/vim-sublime-monokai'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -53,6 +56,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -266,9 +270,11 @@ nnoremap <leader>cdd :CocDiagnostics<CR>
 " Word wrapping
 nnoremap <leader>ww :set wrap!<CR>
 
-" " Navigate soft wrapped lines
-" noremap <expr> j v:count ? 'j' : 'gj'
-" noremap <expr> k v:count ? 'k' : 'gk'
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Move in LSP suggestions
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
