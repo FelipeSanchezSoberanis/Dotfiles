@@ -251,6 +251,9 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 " HTML preview with Bracey
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
+" HTML formatter
+autocmd FileType html nnoremap <buffer> <leader>ff :!tidy -mi --indent-spaces 4 -html -wrap 0 %<CR>
+
 " Toggle nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
@@ -285,6 +288,10 @@ nnoremap <expr> <leader>sp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Search selected text
 vnoremap <leader>ss y/<C-r>"<CR>
+
+" Change conceal level
+nnoremap <leader>cl1 :set conceallevel=1<CR>
+nnoremap <leader>cl0 :set conceallevel=0<CR>
 
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
