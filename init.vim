@@ -252,7 +252,7 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
 " HTML formatter
-autocmd FileType html nnoremap <buffer> <leader>ff :!tidy -mi --indent-spaces 4 -html -wrap 0 %<CR>
+autocmd FileType html nnoremap <buffer> <leader>ff :!tidy -mi --indent-spaces 4 -html -wrap 0 %<CR>:e<CR>
 
 " Toggle nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
