@@ -68,6 +68,7 @@ require'nvim-treesitter.configs'.setup {
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   highlight = {
     enable = true,              -- false will disable the whole extension
+    disable = {"html"},
     additional_vim_regex_highlighting = false,
   },
 }
@@ -256,6 +257,8 @@ autocmd FileType html setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2
 autocmd FileType html setlocal softtabstop=2
 autocmd FileType html nmap <buffer> <leader>ff gg=G<SPACE>sp<<C-o>
+
+autocmd FileType css nmap <buffer> <leader>ff gg=G<C-o>
 
 " Latex wordcount
 autocmd FileType tex,latex nnoremap <buffer> <leader>wc :!detex % \| wc -w<CR>
