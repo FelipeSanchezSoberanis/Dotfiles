@@ -252,9 +252,9 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
 " HTML indenter
-autocmd FileType html set shiftwidth=2
-autocmd FileType html set tabstop=2
-autocmd FileType html set softtabstop=2
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal softtabstop=2
 autocmd FileType html nmap <buffer> <leader>ff gg=G<SPACE>sp<<C-o>
 
 " Latex wordcount
