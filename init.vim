@@ -251,8 +251,11 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 " HTML preview with Bracey
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
-" HTML formatter
-autocmd FileType html nnoremap <buffer> <leader>ff :!tidy -mi --indent-spaces 4 -html -wrap 0 %<CR>:e<CR>
+" HTML indenter
+autocmd FileType html set shiftwidth=2
+autocmd FileType html set tabstop=2
+autocmd FileType html set softtabstop=2
+autocmd FileType html nmap <buffer> <leader>ff gg=G<SPACE>sp<<C-o>
 
 " Latex wordcount
 autocmd FileType tex,latex nnoremap <buffer> <leader>wc :!detex % \| wc -w<CR>
