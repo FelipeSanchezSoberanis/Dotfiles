@@ -57,6 +57,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -252,13 +253,20 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 " HTML preview with Bracey
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
-" HTML indenter
+" HTML formatter
 autocmd FileType html setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2
 autocmd FileType html setlocal softtabstop=2
-autocmd FileType html nmap <buffer> <leader>ff gg=G<SPACE>sp<<C-o>
+autocmd FileType html nnoremap <buffer> <leader>ff :Neoformat<CR>
 
-autocmd FileType css nmap <buffer> <leader>ff gg=G<C-o>
+" Vue formatter
+autocmd FileType vue setlocal shiftwidth=2
+autocmd FileType vue setlocal tabstop=2
+autocmd FileType vue setlocal softtabstop=2
+autocmd FileType vue nnoremap <buffer> <leader>ff :Neoformat<CR>
+
+" CSS formatter
+autocmd FileType css nnoremap <buffer> <leader>ff :Neoformat<CR>
 
 " Latex wordcount
 autocmd FileType tex,latex nnoremap <buffer> <leader>wc :!detex % \| wc -w<CR>
@@ -305,3 +313,5 @@ nnoremap <leader>cl0 :set conceallevel=0<CR>
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
 
+" Neoformat use
+let g:neoformat_try_node_exe = 1
