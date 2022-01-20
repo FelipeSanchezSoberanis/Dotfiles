@@ -1,0 +1,15 @@
+[log]
+	decorate = auto
+[user]
+	email = fs@wayakna.com
+	name = Felipe  Sánchez
+[core]
+	editor = nvim
+[credential]
+	helper = store
+[commit]
+	template = /home/felipe/.gitmessage
+[remote "origin"]
+	prune = true
+[status]
+	showUntrackedFiles = all
