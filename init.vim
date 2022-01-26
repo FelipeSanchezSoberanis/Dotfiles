@@ -58,6 +58,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
 
@@ -309,6 +310,9 @@ vnoremap <leader>ss y/<C-r>"<CR>
 " Change conceal level
 nnoremap <leader>cl1 :set conceallevel=1<CR>
 nnoremap <leader>cl0 :set conceallevel=0<CR>
+
+" Find TODOs
+nnoremap <leader>ft /\VTODO<CR>
 
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
