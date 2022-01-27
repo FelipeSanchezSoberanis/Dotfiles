@@ -266,6 +266,11 @@ autocmd FileType vue setlocal tabstop=2
 autocmd FileType vue setlocal softtabstop=2
 autocmd FileType vue nnoremap <buffer> <leader>ff :Neoformat<CR>
 
+" JSON spacing
+autocmd FileType json setlocal shiftwidth=2
+autocmd FileType json setlocal tabstop=2
+autocmd FileType json setlocal softtabstop=2
+
 " CSS formatter
 autocmd FileType css nnoremap <buffer> <leader>ff :Neoformat<CR>
 
