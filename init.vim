@@ -319,6 +319,13 @@ nnoremap <leader>cl0 :set conceallevel=0<CR>
 " Find TODOs
 nnoremap <leader>ft /\VTODO<CR>
 
+" Find placeholders
+nnoremap <leader>fp /\V<++><CR>
+
+" Center after search
+nnoremap n nzz
+nnoremap N Nzz
+
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
 
