@@ -59,6 +59,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'lewis6991/spellsitter.nvim'
 
 call plug#end()
 
@@ -331,4 +332,9 @@ let g:mkdp_browser = 'firefox'
 
 " Neoformat use
 let g:neoformat_try_node_exe = 1
+
+" Activate spell sitter
+lua << EOF
+    require('spellsitter').setup()
+EOF
 
