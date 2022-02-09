@@ -130,3 +130,4 @@ export PATH=$GRADLE_HOME/bin:$PATH
 
 neofetch
 
+. "$HOME/.cargo/env"
