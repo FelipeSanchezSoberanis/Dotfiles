@@ -55,6 +55,7 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
@@ -255,6 +256,12 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 " HTML preview with Bracey
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
+" Java custom formatting
+autocmd FileType java nnoremap <buffer> <leader>ff :Neoformat<CR>
+
+" Javascript custom formatting
+autocmd FileType javascript nnoremap <buffer> <leader>ff :Neoformat<CR>
+
 " HTML formatter
 autocmd FileType html setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2
@@ -337,4 +344,7 @@ let g:neoformat_try_node_exe = 1
 lua << EOF
     require('spellsitter').setup()
 EOF
+
+" Default CamelCaseMotion mappings
+let g:camelcasemotion_key = '<leader>'
 
