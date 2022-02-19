@@ -274,10 +274,11 @@ autocmd FileType vue setlocal tabstop=2
 autocmd FileType vue setlocal softtabstop=2
 autocmd FileType vue nnoremap <buffer> <leader>ff :Neoformat<CR>
 
-" JSON spacing
+" JSON formatter
 autocmd FileType json setlocal shiftwidth=2
 autocmd FileType json setlocal tabstop=2
 autocmd FileType json setlocal softtabstop=2
+autocmd FileType json nnoremap <buffer> <leader>ff :Neoformat<CR>
 
 " CSS formatter
 autocmd FileType css nnoremap <buffer> <leader>ff :Neoformat<CR>
@@ -344,7 +345,4 @@ let g:neoformat_try_node_exe = 1
 lua << EOF
     require('spellsitter').setup()
 EOF
-
-" Default CamelCaseMotion mappings
-let g:camelcasemotion_key = '<leader>'
 
