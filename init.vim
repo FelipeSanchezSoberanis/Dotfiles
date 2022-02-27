@@ -25,6 +25,7 @@ set completeopt=menu,menuone
 set nrformats+=alpha
 set diffopt+=vertical
 set linebreak
+set iskeyword-=_
 
 call plug#begin('~/.nvim/plugged')
 
@@ -334,6 +335,11 @@ nnoremap <leader>fp /\V<++><CR>
 " Center after search
 nnoremap n nzz
 nnoremap N Nzz
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 
 " specify browser to open Markdown preview
 let g:mkdp_browser = 'firefox'
