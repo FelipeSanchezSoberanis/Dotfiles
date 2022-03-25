@@ -249,6 +249,9 @@ let g:vimtex_view_method='zathura'
 let g:bracey_refresh_on_save=1
 
 " Latex show table of contents
+autocmd FileType gitcommit nnoremap <buffer> <leader>gl :split ~/.config/nvim/UltiSnips/gitcommit.snippets<CR>
+
+" Latex show table of contents
 autocmd FileType tex,latex nnoremap <buffer> <leader>toc :VimtexTocToggle<CR>
 
 " Markdown preview
