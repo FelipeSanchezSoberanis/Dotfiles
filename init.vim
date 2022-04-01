@@ -261,31 +261,37 @@ autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
 
 " Java custom formatting
-autocmd FileType java nnoremap <buffer> <leader>ff :Neoformat<CR>
+autocmd FileType java nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " Javascript custom formatting
-autocmd FileType javascript nnoremap <buffer> <leader>ff :Neoformat<CR>
+autocmd FileType javascript nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " HTML formatter
 autocmd FileType html setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2
 autocmd FileType html setlocal softtabstop=2
-autocmd FileType html nnoremap <buffer> <leader>ff :Neoformat<CR>
+autocmd FileType html nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
+
+" Markdown formatter
+autocmd FileType markdown nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
+
+" SQL formatter
+autocmd FileType sql nnoremap <buffer> <leader>ff :Neoformat sqlformat<CR>
 
 " Vue formatter
 autocmd FileType vue setlocal shiftwidth=2
 autocmd FileType vue setlocal tabstop=2
 autocmd FileType vue setlocal softtabstop=2
-autocmd FileType vue nnoremap <buffer> <leader>ff :Neoformat<CR>
+autocmd FileType vue nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " JSON formatter
 autocmd FileType json setlocal shiftwidth=2
 autocmd FileType json setlocal tabstop=2
 autocmd FileType json setlocal softtabstop=2
-autocmd FileType json nnoremap <buffer> <leader>ff :Neoformat<CR>
+autocmd FileType json nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " CSS formatter
-autocmd FileType css nnoremap <buffer> <leader>ff :Neoformat<CR>
+autocmd FileType css nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " Latex wordcount
 autocmd FileType tex,latex nnoremap <buffer> <leader>wc :!detex % \| wc -w<CR>
