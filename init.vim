@@ -69,7 +69,7 @@ call plug#end()
 " Treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   highlight = {
     enable = true,              -- false will disable the whole extension
@@ -266,6 +266,9 @@ autocmd FileType java nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 " Javascript custom formatting
 autocmd FileType javascript nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
+" Python custom formatting
+autocmd FileType python nnoremap <buffer> <leader>ff :!black %<CR> :e<CR>
+
 " HTML formatter
 autocmd FileType html setlocal shiftwidth=2
 autocmd FileType html setlocal tabstop=2
@@ -329,7 +332,7 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap <expr> <leader>sp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Search selected text
-vnoremap <leader>ss y/<C-r>"<CR>
+vnoremap <leader>ss y/\V<C-r>"<CR>
 
 " Change conceal level
 nnoremap <leader>cl1 :set conceallevel=1<CR>
