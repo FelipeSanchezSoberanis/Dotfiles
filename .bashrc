@@ -127,9 +127,10 @@ export PATH=$JAVA_HOME/bin:$PATH
 export GRADLE_HOME=/usr/Applications/gradle-7.3
 export PATH=$GRADLE_HOME/bin:$PATH
 
-
 neofetch
 
 . "$HOME/.cargo/env"
 
 eval "$(starship init bash)"
+
+

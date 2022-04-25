@@ -62,6 +62,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'sbdchd/neoformat'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'lewis6991/spellsitter.nvim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
