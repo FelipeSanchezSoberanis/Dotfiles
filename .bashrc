@@ -120,7 +120,7 @@ fi
 alias bat="/usr/bin/batcat"
 alias pip3="python3 -m pip"
 alias tks="tmux kill-session"
-alias ls="logo-ls -1AD"
+alias ls="logo-ls -AD"
 
 export JDTLS_HOME=/home/felipe/.local/opt/jdtls-launcher
 export JAVA_HOME=/usr/lib/jvm/jdk-17
