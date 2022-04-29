@@ -26,6 +26,8 @@ set nrformats+=alpha
 set diffopt+=vertical
 set linebreak
 set iskeyword-=_
+set foldmethod=syntax
+set nofoldenable
 
 call plug#begin('~/.nvim/plugged')
 
@@ -233,6 +235,10 @@ highlight ColorColumn guibg=grey
 
 " Trim trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Save folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
