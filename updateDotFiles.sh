@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 cp ~/.config/alacritty/alacritty.yml .
 cp ~/.config/zathura/zathurarc .
 cp ~/.bashrc .
