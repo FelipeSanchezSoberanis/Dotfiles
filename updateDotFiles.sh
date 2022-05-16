@@ -1,16 +1,22 @@
 #!/usr/bin/env sh
 
-cp ~/.config/alacritty/alacritty.yml .
-cp ~/.config/zathura/zathurarc .
-cp ~/.bashrc .
-cp ~/.tmux.conf .
-cp ~/.gitmessage .
-cp ~/.gitconfig .
-cp ~/.config/i3/config .
-cp ~/.config/kitty/kitty.conf .
+cp ~/.config/alacritty/alacritty.yml ./alacritty/
 
-cp ~/.config/ranger/rifle.conf .
-cp ~/.config/ranger/commands.py .
-cp ~/.config/ranger/commands_full.py .
-cp ~/.config/ranger/rc.conf .
-cp ~/.config/ranger/scope.sh .
+cp ~/.config/zathura/zathurarc ./zathura/
+
+cp ~/.bashrc ./bash/
+
+cp ~/.tmux.conf ./tmux/
+
+cp ~/.gitmessage ./git/
+cp ~/.gitconfig ./git/
+
+cp ~/.config/i3/config ./i3/
+
+cp ~/.config/kitty/kitty.conf ./kitty/
+
+cp ~/.config/ranger/rifle.conf ./ranger/
+cp ~/.config/ranger/commands.py ./ranger/
+cp ~/.config/ranger/commands_full.py ./ranger/
+cp ~/.config/ranger/rc.conf ./ranger/
+cp ~/.config/ranger/scope.sh ./ranger/
