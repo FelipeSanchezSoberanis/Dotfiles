@@ -177,7 +177,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls', 'clangd', 'lemminx', 'vuels', 'rust_analyzer' }
+local servers = { 'pyright', 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls', 'clangd', 'lemminx', 'vuels', 'rust_analyzer', 'arduino_language_server' }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls')
     then
@@ -200,6 +200,20 @@ for _, lsp in ipairs(servers) do
         },
         capabilities = capabilities
       }
+    elseif (lsp == 'arduino_language_server')
+    then
+      nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        },
+        cmd = {
+          'arduino-language-server',
+          '-clangd', 'clangd',
+          '-cli', 'arduino-cli',
+          '-cli-config', '~/.arduino15/arduino-cli.yaml'
+        }
+    }
     else
       nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -284,6 +298,10 @@ autocmd FileType html nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " Markdown formatter
 autocmd FileType markdown nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
+
+" Arduino formatter
+autocmd FileType arduino nnoremap <buffer> <leader>ff :!clang-format -style="{IndentWidth: 4}" -i % <CR>
+autocmd BufWritePost *.ino !clang-format -style="{IndentWidth: 4}" -i %
 
 " SQL formatter
 autocmd FileType sql nnoremap <buffer> <leader>ff :Neoformat sqlformat<CR>
