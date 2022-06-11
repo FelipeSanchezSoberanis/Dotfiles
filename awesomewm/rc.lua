@@ -49,11 +49,11 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
-editor = os.getenv("EDITOR") or "editor"
+terminal = "kitty"
+editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -65,19 +65,19 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.fair,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.max,
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier,
+    -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -179,6 +179,16 @@ local function set_wallpaper(s)
     end
 end
 
+-- Custom widgets
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local cw = calendar_widget({placement = "top_right", theme = "dark"})
+
+mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -221,17 +231,21 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
+        {
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
+        },
+        { -- Right widgets
+            layout = wibox.layout.align.horizontal,
             mytextclock,
-            s.mylayoutbox,
+            battery_widget({show_current_level = true}),
+            -- calendar_widget(),
+            -- mykeyboardlayout,
+            -- wibox.widget.systray(),
+            -- s.mylayoutbox,
         },
     }
 end)
@@ -344,7 +358,13 @@ globalkeys = gears.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+    -- Volume
+    awful.key({ }, "#122", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end),
+    awful.key({ }, "#123", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end),
+    -- Brightness
+    awful.key({ }, "#232", function () awful.util.spawn("xbacklight -dec 10") end),
+    awful.key({ }, "#233", function () awful.util.spawn("xbacklight -inc 10") end)
 )
 
 clientkeys = gears.table.join(
@@ -507,9 +527,9 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
-    },
+    -- { rule_any = {type = { "normal", "dialog" }
+      -- }, properties = { titlebars_enabled = true }
+    -- },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
@@ -573,10 +593,24 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+-- client.connect_signal("mouse::enter", function(c)
+    -- c:emit_signal("request::activate", "mouse_enter", {raise = false})
+-- end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Gaps
+beautiful.useless_gap = 5
+
+awful.spawn.with_shell("pgrep redshift | xargs -I {} kill {}")
+
+awful.spawn.with_shell("xinput set-int-prop \"FTE1200:00 0B05:0501 Touchpad\" \"libinput Natural Scrolling Enabled\" 8 1")
+awful.spawn.with_shell("xinput set-int-prop \"FTE1200:00 0B05:0501 Touchpad\" \"libinput Tapping Enabled\" 8 1")
+awful.spawn.with_shell("compton")
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("redshift")
+
+awful.spawn.with_shell("thunderbird")
+
