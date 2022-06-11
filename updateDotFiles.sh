@@ -20,3 +20,4 @@ cp ~/.config/ranger/commands.py ./ranger/
 cp ~/.config/ranger/commands_full.py ./ranger/
 cp ~/.config/ranger/rc.conf ./ranger/
 cp ~/.config/ranger/scope.sh ./ranger/
+cp ~/.config/awesome/rc.lua ./awesomewm/
