@@ -604,12 +604,14 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Gaps
 beautiful.useless_gap = 5
 
-awful.spawn.with_shell("pgrep redshift | xargs -I {} kill {}")
+
+awful.spawn.with_shell("compton")
+
+awful.spawn.with_shell("nitrogen --restore")
 
 awful.spawn.with_shell("xinput set-int-prop \"FTE1200:00 0B05:0501 Touchpad\" \"libinput Natural Scrolling Enabled\" 8 1")
 awful.spawn.with_shell("xinput set-int-prop \"FTE1200:00 0B05:0501 Touchpad\" \"libinput Tapping Enabled\" 8 1")
-awful.spawn.with_shell("compton")
-awful.spawn.with_shell("nitrogen --restore")
+
 awful.spawn.with_shell("redshift")
 
 awful.spawn.with_shell("thunderbird")
