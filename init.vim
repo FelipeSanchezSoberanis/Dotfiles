@@ -65,6 +65,7 @@ Plug 'sbdchd/neoformat'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'lewis6991/spellsitter.nvim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
@@ -234,7 +235,8 @@ let g:UltiSnipsJumpForwardTrigger="<TAB>"
 let g:UltiSnipsJumpBackwardTrigger="<S-TAB>"
 
 " Gruvbox color theme
-colorscheme gruvbox8
+" colorscheme gruvbox8
+colorscheme dracula
 let g:gruvbox8_contrast_dark="hard"
 let g:gruvbox8_termcolors=256
 
@@ -279,7 +281,7 @@ autocmd FileType tex,latex nnoremap <buffer> <leader>toc :VimtexTocToggle<CR>
 autocmd FileType markdown nnoremap <buffer> <leader>mp :MarkdownPreview<CR>
 
 " HTML preview with Bracey
-autocmd FileType html nnoremap <buffer> <leader>hp :Bracey<CR>
+autocmd FileType html nnoremap <buffer> <leader>htp :Bracey<CR>
 
 " Java custom formatting
 autocmd FileType java nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
@@ -289,6 +291,7 @@ autocmd FileType javascript nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " Python custom formatting
 autocmd FileType python nnoremap <buffer> <leader>ff :!black %<CR> :e<CR>
+autocmd BufWritePost *.py silent !black %
 
 " HTML formatter
 autocmd FileType html setlocal shiftwidth=2
@@ -301,7 +304,7 @@ autocmd FileType markdown nnoremap <buffer> <leader>ff :Neoformat prettier<CR>
 
 " Arduino formatter
 autocmd FileType arduino nnoremap <buffer> <leader>ff :!clang-format -style="{IndentWidth: 4}" -i % <CR>
-autocmd BufWritePost *.ino !clang-format -style="{IndentWidth: 4}" -i %
+autocmd BufWritePost *.ino silent !clang-format -style="{IndentWidth: 4}" -i %
 
 " SQL formatter
 autocmd FileType sql nnoremap <buffer> <leader>ff :Neoformat sqlformat<CR>
