@@ -1,5 +1,5 @@
 favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,libreoffice-writer.desktop,libreoffice-calc.desktop,org.gnome.Software.desktop,xfce4-terminal-emulator.desktop,xfhelp4.desktop
-recent=firefox.desktop,xfce-session-settings.desktop,xfce4-file-manager.desktop,xfce4-color-settings.desktop,org.gnome.DiskUtility.desktop,thunderbird.desktop,xfce-settings-manager.desktop,xfce4-settings-editor.desktop,xfce-mouse-settings.desktop,xfce4-web-browser.desktop
+recent=firefox.desktop,xfce-session-settings.desktop,xfce-wmtweaks-settings.desktop,xfce4-file-manager.desktop,xfce4-color-settings.desktop,org.gnome.DiskUtility.desktop,thunderbird.desktop,xfce-settings-manager.desktop,xfce4-settings-editor.desktop,xfce-mouse-settings.desktop
 button-icon=xubuntu-logo-menu
 button-single-row=false
 show-button-title=false

@@ -9,6 +9,13 @@ application/x-extension-shtml=userapp-Firefox-NPXVO1.desktop
 application/xhtml+xml=userapp-Firefox-NPXVO1.desktop
 application/x-extension-xhtml=userapp-Firefox-NPXVO1.desktop
 application/x-extension-xht=userapp-Firefox-NPXVO1.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-VPO3O1.desktop
+message/rfc822=userapp-Thunderbird-VPO3O1.desktop
+x-scheme-handler/mid=userapp-Thunderbird-VPO3O1.desktop
+x-scheme-handler/webcal=userapp-Thunderbird-O6CRO1.desktop
+text/calendar=userapp-Thunderbird-O6CRO1.desktop
+application/x-extension-ics=userapp-Thunderbird-O6CRO1.desktop
+x-scheme-handler/webcals=userapp-Thunderbird-O6CRO1.desktop
 
 [Added Associations]
 x-scheme-handler/http=xfce4-web-browser.desktop;userapp-Firefox-NPXVO1.desktop;
@@ -21,3 +28,7 @@ application/x-extension-shtml=userapp-Firefox-NPXVO1.desktop;
 application/xhtml+xml=userapp-Firefox-NPXVO1.desktop;
 application/x-extension-xhtml=userapp-Firefox-NPXVO1.desktop;
 application/x-extension-xht=userapp-Firefox-NPXVO1.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-VPO3O1.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-VPO3O1.desktop;
+x-scheme-handler/webcal=userapp-Thunderbird-O6CRO1.desktop;
+x-scheme-handler/webcals=userapp-Thunderbird-O6CRO1.desktop;
