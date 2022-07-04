@@ -71,7 +71,6 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>a<C-p> :Files<CR>
 nnoremap <C-f> :Ag<CR>
 
-
 " Select pasted text
 nnoremap <expr> <leader>sp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
