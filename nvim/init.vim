@@ -31,6 +31,10 @@ set nofoldenable
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -44,3 +48,10 @@ highlight Normal guibg=None
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
+" NerdCommenter
+let g:NERDSpaceDelims = 1
+
+lua << EOF
+require('gitsignsconfig')
+require('treesitterconfig')
+EOF
