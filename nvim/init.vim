@@ -1,49 +1,8 @@
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-set exrc
-set nowrap
-set relativenumber
-set hidden
-set noerrorbells
-set nu
-set scrolloff=10
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set incsearch
-set termguicolors
-set signcolumn=yes
-set colorcolumn=80
-set numberwidth=1
-set mouse=a
-set encoding=UTF-8
-set cursorline
-set completeopt=menu,menuone
-set nrformats+=alpha
-set diffopt+=vertical
-set linebreak
-set iskeyword-=_
-set foldmethod=syntax
-set nofoldenable
+" Set configs
+source /home/felipe/.config/nvim/setconfig.vim
 
-call plug#begin('~/.nvim/plugged')
-
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-airline/vim-airline'
-Plug 'preservim/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'tpope/vim-fugitive'
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-call plug#end()
+" List of plugins with vim plug
+source /home/felipe/.config/nvim/plugins.vim
 
 " Dracula as colorscheme
 colorscheme dracula
@@ -95,6 +54,13 @@ nnoremap N Nzz
 nnoremap <leader>gd :Gdiffsplit!<CR>
 nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
+
+" Move between buffers
+nnoremap <leader>nb :bnext<CR>
+nnoremap <leader>pb :bprevious<CR>
+
+" Formatters on save
+source /home/felipe/.config/nvim/formattersonsave.vim
 
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
