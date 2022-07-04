@@ -61,6 +61,9 @@ let g:airline#extensions#branch#enabled = 1
 " Toggle nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
+" Trim trailing whitespaces on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
 
