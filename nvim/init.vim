@@ -31,6 +31,8 @@ set nofoldenable
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
@@ -63,6 +65,11 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 
 " Trim trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Search filename in working directory
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>a<C-p> :Files<CR>
+nnoremap <C-f> :Ag<CR>
 
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
