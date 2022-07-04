@@ -52,6 +52,8 @@ nnoremap <SPACE> <Nop>
 let g:NERDSpaceDelims = 1
 
 lua << EOF
+package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
+
 require('gitsignsconfig')
 require('treesitterconfig')
 EOF
