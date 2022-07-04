@@ -1,0 +1,17 @@
+[init]
+	defaultBranch = main
+[user]
+	email = felipesaso2000@gmail.com
+	name = Felipe Sánchez Soberanis
+[log]
+	decorate = auto
+[core]
+	editor = nvim
+[credential]
+	helper = store
+[commit]
+	template = /home/felipe/.gitmessage
+[remote "origin"]
+	prune = true
+[status]
+	showUntrackedFiles = all
