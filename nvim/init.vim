@@ -31,6 +31,8 @@ set nofoldenable
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
@@ -55,6 +57,9 @@ let g:NERDSpaceDelims = 1
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#branch#enabled = 1
+
+" Toggle nerdtree
+nnoremap <leader>nt :NERDTreeToggle<CR>
 
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
