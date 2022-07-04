@@ -31,6 +31,7 @@ set nofoldenable
 
 call plug#begin('~/.nvim/plugged')
 
+Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -50,6 +51,10 @@ nnoremap <SPACE> <Nop>
 
 " NerdCommenter
 let g:NERDSpaceDelims = 1
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
+let g:airline#extensions#branch#enabled = 1
 
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
