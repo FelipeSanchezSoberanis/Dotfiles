@@ -71,6 +71,32 @@ nnoremap <C-p> :GFiles<CR>
 nnoremap <leader>a<C-p> :Files<CR>
 nnoremap <C-f> :Ag<CR>
 
+
+" Select pasted text
+nnoremap <expr> <leader>sp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Search selected text
+vnoremap <leader>ss y/\V<C-r>"<CR>
+
+" Change conceal level
+nnoremap <leader>cl1 :set conceallevel=1<CR>
+nnoremap <leader>cl0 :set conceallevel=0<CR>
+
+" Find TODOs
+nnoremap <leader>ft /\VTODO<CR>
+
+" Find placeholders
+nnoremap <leader>fp /\V<++><CR>
+
+" Center after search
+nnoremap n nzz
+nnoremap N Nzz
+
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gdiffsplit!<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
 
