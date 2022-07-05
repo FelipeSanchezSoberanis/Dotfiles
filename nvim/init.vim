@@ -15,6 +15,9 @@ nnoremap <SPACE> <Nop>
 " NerdCommenter
 let g:NERDSpaceDelims = 1
 
+" Python provider
+let g:python3_host_prog = "python"
+
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#branch#enabled = 1
@@ -67,4 +70,5 @@ package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
 
 require('gitsignsconfig')
 require('treesitterconfig')
+require('nvimlspconfig')
 EOF
