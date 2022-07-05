@@ -95,8 +95,8 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
-    'pyright', 'sumneko_lua'
-    -- , 'jdtls', 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls', 'clangd', 'lemminx', 'vuels', 'rust_analyzer', 'arduino_language_server'
+    'pyright', 'sumneko_lua', 'volar'
+    -- 'texlab', 'emmet_ls', 'html', 'cssls', 'tsserver', 'jsonls', 'yamlls', 'clangd', 'lemminx', 'vuels', 'rust_analyzer', 'arduino_language_server'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls') then
@@ -124,8 +124,19 @@ for _, lsp in ipairs(servers) do
                 'arduino-cli', '-cli-config', '~/.arduino15/arduino-cli.yaml'
             }
         }
+    elseif (lsp == 'volar') then
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {debounce_text_changes = 150},
+            filetypes = {
+                'typescript', 'javascript', 'javascriptreact',
+                'typescriptreact', 'vue', 'json'
+            }
+        }
     elseif (lsp == 'sumneko_lua') then
         nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {debounce_text_changes = 150},
             settings = {
                 Lua = {
                     runtime = {
