@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=mattermost-desktop
+Comment=mattermost-desktopstartup script
+Exec=/usr/Applications/mattermost-desktop-5.1.1-linux-x64/mattermost-desktop
+StartupNotify=false
+Terminal=false
+Hidden=true
+
