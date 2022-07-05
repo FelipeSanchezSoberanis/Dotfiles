@@ -62,6 +62,14 @@ nnoremap gdl :diffget //3<CR>
 nnoremap <leader>nb :bnext<CR>
 nnoremap <leader>pb :bprevious<CR>
 
+" Jdtls mappings
+nnoremap <leader>cao <Cmd>lua require'jdtls'.organize_imports()<CR>
+nnoremap <leader>caev <Cmd>lua require('jdtls').extract_variable()<CR>
+vnoremap <leader>caev <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
+nnoremap <leader>caec <Cmd>lua require('jdtls').extract_constant()<CR>
+vnoremap <leader>caec <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
+vnoremap <leader>caem <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
+
 " Formatters on save
 source /home/felipe/.config/nvim/formattersonsave.vim
 

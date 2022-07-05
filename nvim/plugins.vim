@@ -1,5 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
+Plug 'mfussenegger/nvim-jdtls'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
