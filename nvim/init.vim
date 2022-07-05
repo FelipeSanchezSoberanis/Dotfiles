@@ -79,4 +79,5 @@ package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
 require('gitsignsconfig')
 require('treesitterconfig')
 require('nvimlspconfig')
+require('indentblanklineconfig')
 EOF

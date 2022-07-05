@@ -1,5 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
