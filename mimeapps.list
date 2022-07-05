@@ -16,6 +16,7 @@ x-scheme-handler/webcal=userapp-Thunderbird-O6CRO1.desktop
 text/calendar=userapp-Thunderbird-O6CRO1.desktop
 application/x-extension-ics=userapp-Thunderbird-O6CRO1.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-O6CRO1.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 x-scheme-handler/http=xfce4-web-browser.desktop;userapp-Firefox-NPXVO1.desktop;
