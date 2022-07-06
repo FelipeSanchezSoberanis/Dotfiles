@@ -363,7 +363,7 @@ end, {description = "move to master", group = "client"}),
                               awful.key({modkey}, "n", function(c)
     -- The client currently has the input focus, so it cannot be
     -- minimized, since minimized clients can't have the focus.
-    c.minimized = true
+    c.minimized = false
 end, {description = "minimize", group = "client"}),
                               awful.key({modkey}, "m", function(c)
     c.maximized = not c.maximized
