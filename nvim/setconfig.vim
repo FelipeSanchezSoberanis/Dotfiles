@@ -19,7 +19,6 @@ set signcolumn=yes
 set colorcolumn=80
 set numberwidth=1
 set mouse=a
-set encoding=UTF-8
 set cursorline
 set completeopt=menu,menuone
 set nrformats+=alpha

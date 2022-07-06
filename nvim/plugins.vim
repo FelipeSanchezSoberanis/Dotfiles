@@ -1,5 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
+Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mfussenegger/nvim-jdtls'
