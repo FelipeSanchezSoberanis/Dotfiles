@@ -70,6 +70,9 @@ autocmd FileType java nnoremap <buffer> <leader>caec <Cmd>lua require('jdtls').e
 autocmd FileType java vnoremap <buffer> <leader>caec <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
 autocmd FileType java vnoremap <buffer> <leader>caem <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
 
+" Toggle word wrapping
+nnoremap <leader>ww :set wrap!<CR>
+
 " Formatters on save
 source /home/felipe/.config/nvim/formattersonsave.vim
 
