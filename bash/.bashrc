@@ -126,6 +126,8 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
+alias ls="logo-ls"
+
 neofetch
 
 eval "$(starship init bash)"
