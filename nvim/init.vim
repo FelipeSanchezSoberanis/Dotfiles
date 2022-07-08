@@ -34,6 +34,8 @@ let g:clipboard = {
   \   'cache_enabled': 1,
   \ }
 
+"Hello
+
 " Toggle nerdtree
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
