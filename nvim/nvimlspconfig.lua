@@ -96,8 +96,8 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
     'pyright', 'sumneko_lua', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
-    'bashls'
-    -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server', 'vuels'
+    'bashls', 'vuels'
+    -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls') then
@@ -132,6 +132,40 @@ for _, lsp in ipairs(servers) do
             filetypes = {
                 'typescript', 'javascript', 'javascriptreact',
                 'typescriptreact', 'vue', 'json'
+            }
+        }
+    elseif (lsp == 'vuels') then
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {debounce_text_changes = 150},
+            init_options = {
+                config = {
+                    css = {},
+                    emmet = {},
+                    html = {suggest = {}},
+                    javascript = {format = {}},
+                    stylusSupremacy = {},
+                    typescript = {format = {}},
+                    vetur = {
+                        completion = {
+                            autoImport = false,
+                            tagCasing = "kebab",
+                            useScaffoldSnippets = false
+                        },
+                        format = {
+                            defaultFormatter = {js = "none", ts = "none"},
+                            defaultFormatterOptions = {},
+                            scriptInitialIndent = false,
+                            styleInitialIndent = false
+                        },
+                        useWorkspaceDependencies = false,
+                        validation = {
+                            script = false,
+                            style = false,
+                            template = false
+                        }
+                    }
+                }
             }
         }
     elseif (lsp == 'sumneko_lua') then
