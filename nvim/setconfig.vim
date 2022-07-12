@@ -24,7 +24,7 @@ set completeopt=menu,menuone
 set nrformats+=alpha
 set diffopt+=vertical
 set linebreak
-set iskeyword-=_
+set iskeyword-=_,-
 set foldmethod=syntax
 set nofoldenable
 
