@@ -88,6 +88,9 @@ nnoremap <leader>ww :set wrap!<CR>
 " Formatters on save
 source /home/felipe/.config/nvim/formattersonsave.vim
 
+" File indents
+source /home/felipe/.config/nvim/fileindents.vim
+
 lua << EOF
 package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
 
