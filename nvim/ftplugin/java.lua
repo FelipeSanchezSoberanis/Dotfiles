@@ -1,5 +1,5 @@
 --- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+local project_name = vim.fn.getcwd():gsub("/", "__")
 
 local workspace_dir = '/home/felipe/Documents/jdtls-data/' .. project_name
 
