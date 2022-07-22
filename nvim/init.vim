@@ -74,13 +74,13 @@ nnoremap gdl :diffget //3<CR>
 nnoremap <leader>nb :bnext<CR>
 nnoremap <leader>pb :bprevious<CR>
 
-" Jdtls mappings only for java
-autocmd FileType java nnoremap <buffer> <leader>cao <Cmd>lua require'jdtls'.organize_imports()<CR>
-autocmd FileType java nnoremap <buffer> <leader>caev <Cmd>lua require('jdtls').extract_variable()<CR>
-autocmd FileType java vnoremap <buffer> <leader>caev <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
-autocmd FileType java nnoremap <buffer> <leader>caec <Cmd>lua require('jdtls').extract_constant()<CR>
-autocmd FileType java vnoremap <buffer> <leader>caec <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
-autocmd FileType java vnoremap <buffer> <leader>caem <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
+" " Jdtls mappings only for java
+" autocmd FileType java nnoremap <buffer> <leader>cao <Cmd>lua require'jdtls'.organize_imports()<CR>
+" autocmd FileType java nnoremap <buffer> <leader>caev <Cmd>lua require('jdtls').extract_variable()<CR>
+" autocmd FileType java vnoremap <buffer> <leader>caev <Cmd>lua require('jdtls').extract_variable(true)<CR>
+" autocmd FileType java nnoremap <buffer> <leader>caec <Cmd>lua require('jdtls').extract_constant()<CR>
+" autocmd FileType java vnoremap <buffer> <leader>caec <Cmd>lua require('jdtls').extract_constant(true)<CR>
+" autocmd FileType java vnoremap <buffer> <leader>caem <Cmd>lua require('jdtls').extract_method(true)<CR>
 
 " Toggle word wrapping
 nnoremap <leader>ww :set wrap!<CR>
