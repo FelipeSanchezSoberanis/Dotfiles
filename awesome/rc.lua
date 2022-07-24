@@ -548,3 +548,6 @@ client.connect_signal("unfocus",
 beautiful.useless_gap = 5
 beautiful.gap_single_client = true
 
+awful.spawn.with_shell(
+    "feh --bg-fill ~/Pictures/Wallpapers/wallpapersden.com_minimal-ship-artwork-purple-background_5120x2880.jpg")
+
