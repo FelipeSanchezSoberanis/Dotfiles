@@ -25,6 +25,6 @@ set nrformats+=alpha
 set diffopt+=vertical
 set linebreak
 set iskeyword-=_,-
-set foldmethod=syntax
+set foldmethod=indent
 set nofoldenable
 

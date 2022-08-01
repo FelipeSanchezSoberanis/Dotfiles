@@ -127,6 +127,8 @@ unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 alias ls="logo-ls"
+alias ll="logo-ls -1al"
+alias kubectl-get-all="kubectl get all,secret,configmap"
 
 neofetch
 
