@@ -21,6 +21,11 @@ let g:python3_host_prog = "python"
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#branch#enabled = 1
 
+" Move in snippets with tab
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Active nvim registers with clipboard
 let g:clipboard = {
   \   'name': 'xclip-xfce4-clipman',
   \   'copy': {
@@ -35,7 +40,7 @@ let g:clipboard = {
   \ }
 
 " Toggle nerdtree
-nnoremap <leader>nt :NERDTreeToggle<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>:NERDTreeRefreshRoot<CR>
 
 " Trim trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -73,6 +78,12 @@ nnoremap gdl :diffget //3<CR>
 " Move between buffers
 nnoremap <leader>nb :bnext<CR>
 nnoremap <leader>pb :bprevious<CR>
+
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * silent! mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
 
 " " Jdtls mappings only for java
 " autocmd FileType java nnoremap <buffer> <leader>cao <Cmd>lua require'jdtls'.organize_imports()<CR>

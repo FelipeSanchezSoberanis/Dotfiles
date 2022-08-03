@@ -27,4 +27,6 @@ set linebreak
 set iskeyword-=_,-
 set foldmethod=indent
 set nofoldenable
+set splitbelow
+set splitright
 

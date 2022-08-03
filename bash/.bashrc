@@ -129,6 +129,9 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 alias ls="logo-ls"
 alias ll="logo-ls -1al"
 alias kubectl-get-all="kubectl get all,secret,configmap"
+alias nk="kitty --detach ."
+alias copy="xclip -selection c"
+alias pasta="xclip -selection c -o"
 
 neofetch
 
