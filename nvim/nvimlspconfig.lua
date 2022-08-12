@@ -106,7 +106,8 @@ for _, lsp in ipairs(servers) do
             flags = {debounce_text_changes = 150},
             cmd = {'jdtls'}
         }
-    elseif (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls') then
+    elseif (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp ==
+        'eslint') then
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities.textDocument.completion.completionItem.snippetSupport =
             true
