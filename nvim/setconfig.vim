@@ -29,4 +29,6 @@ set foldmethod=indent
 set nofoldenable
 set splitbelow
 set splitright
+set ignorecase
+set smartcase
 
