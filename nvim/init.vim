@@ -115,4 +115,5 @@ require('gitsignsconfig')
 require('treesitterconfig')
 require('nvimlspconfig')
 require('indentblanklineconfig')
+require('treesittercontextconfig')
 EOF
