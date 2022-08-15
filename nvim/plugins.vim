@@ -1,5 +1,6 @@
 call plug#begin('~/.nvim/plugged')
 
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'

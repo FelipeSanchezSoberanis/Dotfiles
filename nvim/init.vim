@@ -79,6 +79,12 @@ nnoremap gdl :diffget //3<CR>
 nnoremap <leader>nb :bnext<CR>
 nnoremap <leader>pb :bprevious<CR>
 
+" Bookmarks
+nnoremap mn <Plug>BookmarkNext
+nnoremap mN <Plug>BookmarkPrev
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
+
 augroup remember_folds
   autocmd!
   autocmd BufWinLeave * silent! mkview
