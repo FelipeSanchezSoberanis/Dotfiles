@@ -54,7 +54,10 @@ nnoremap <C-f> :Ag<CR>
 nnoremap <expr> <leader>sp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Search selected text
-vnoremap <leader>ss y/\V<C-r>"<CR>
+vnoremap <leader>ss y/\V<C-r>=escape(@",'/\')<CR><CR>
+
+" Search text from clipboard
+nnoremap <leader>ss /\V<C-r>=escape(@*,'/\')<CR><CR>
 
 " Change conceal level
 nnoremap <leader>cl1 :set conceallevel=1<CR>
