@@ -60,6 +60,7 @@ vnoremap <leader>ss y/\V<C-r>=escape(@",'/\')<CR><CR>
 nnoremap <leader>ss /\V<C-r>=escape(@*,'/\')<CR><CR>
 
 " Change conceal level
+nnoremap <leader>cl2 :set conceallevel=2<CR>
 nnoremap <leader>cl1 :set conceallevel=1<CR>
 nnoremap <leader>cl0 :set conceallevel=0<CR>
 
@@ -104,6 +105,14 @@ augroup END
 
 " Toggle word wrapping
 nnoremap <leader>ww :set wrap!<CR>
+
+let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+
+lua << EOF
+require("catppuccin").setup({transparent_background = true})
+EOF
+
+colorscheme catppuccin
 
 " Formatters on save
 source /home/felipe/.config/nvim/formattersonsave.vim

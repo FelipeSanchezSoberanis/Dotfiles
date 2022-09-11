@@ -27,5 +27,6 @@ Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 call plug#end()
