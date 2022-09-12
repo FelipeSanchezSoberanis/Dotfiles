@@ -106,13 +106,16 @@ augroup END
 " Toggle word wrapping
 nnoremap <leader>ww :set wrap!<CR>
 
-let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+" Toggle word wrapping
+autocmd FileType markdown nnoremap <buffer> <leader>toc :Toc<CR>
 
-lua << EOF
-require("catppuccin").setup({transparent_background = true})
-EOF
+" let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 
-colorscheme catppuccin
+" lua << EOF
+" require("catppuccin").setup({transparent_background = true})
+" EOF
+
+" colorscheme catppuccin
 
 " Formatters on save
 source /home/felipe/.config/nvim/formattersonsave.vim

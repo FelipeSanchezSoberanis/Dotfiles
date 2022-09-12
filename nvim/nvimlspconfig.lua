@@ -148,6 +148,12 @@ for _, lsp in ipairs(servers) do
         }
     elseif (lsp == 'volar') then
         nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {debounce_text_changes = 150},
+            filetypes = {
+                'typescript', 'javascript', 'javascriptreact',
+                'typescriptreact', 'vue', 'json'
+            },
             on_new_config = function(new_config, new_root_dir)
                 new_config.init_options.typescript.serverPath =
                     get_typescript_server_path(new_root_dir)
