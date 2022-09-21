@@ -116,7 +116,7 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
     'pyright', 'sumneko_lua', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
-    'bashls', 'vuels', 'dockerls', 'lemminx'
+    'bashls', 'vuels', 'dockerls', 'lemminx', 'eslint'
     -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server'
 }
 for _, lsp in ipairs(servers) do
