@@ -74,6 +74,13 @@ nnoremap <leader>fp /\V<++><CR>
 nnoremap n nzz
 nnoremap N Nzz
 
+" Center after par skip
+nnoremap { {zz
+nnoremap } }zz
+
+" Folding custom config
+nnoremap za zjzak
+
 " Fugitive Conflict Resolution
 nnoremap <leader>gd :Gdiffsplit!<CR>
 nnoremap gdh :diffget //2<CR>

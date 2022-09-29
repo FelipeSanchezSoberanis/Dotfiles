@@ -24,11 +24,11 @@ set completeopt=menu,menuone
 set nrformats+=alpha
 set diffopt+=vertical
 set linebreak
-set iskeyword-=_,-
-set foldmethod=indent
-set nofoldenable
+set iskeyword-=_
+set iskeyword-=-
+set foldmethod=expr
+set foldexpr=nvim_treesitter()#foldexpr()
 set splitbelow
 set splitright
 set ignorecase
 set smartcase
-

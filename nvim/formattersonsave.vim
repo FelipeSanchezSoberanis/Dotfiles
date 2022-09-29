@@ -1,7 +1,7 @@
 " ================================= Formatters =================================
 autocmd BufWritePost *.lua silent !lua-format -i %
 autocmd BufWritePost *.py silent !black %
-autocmd BufWritePost *.vue,*.js,*.java,*.css,*.scss,*.ts,*.html,*.yaml,*.xml,*.xsl,*.json silent !prettier -w %
+autocmd BufWritePost *.vue,*.js,*.java,*.css,*.scss,*.ts,*.html,*.yaml,*.xml,*.xsl,*.json,*.cjs silent !prettier -w %
 autocmd BufWritePost *.cds silent !format-cds -f %
 autocmd BufWritePost *.sql silent !sql-formatter % -o %
 
@@ -28,3 +28,8 @@ autocmd FileType json setlocal softtabstop=2
 autocmd FileType scss setlocal shiftwidth=2
 autocmd FileType scss setlocal tabstop=2
 autocmd FileType scss setlocal softtabstop=2
+
+" ============================== Folding methods ==============================
+
+autocmd FileType xml,xsl setlocal foldmethod=indent
+
