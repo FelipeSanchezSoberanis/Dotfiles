@@ -27,7 +27,7 @@ set linebreak
 set iskeyword-=_
 set iskeyword-=-
 set foldmethod=expr
-set foldexpr=nvim_treesitter()#foldexpr()
+set foldexpr=nvim_treesitter#foldexpr()
 set splitbelow
 set splitright
 set ignorecase
