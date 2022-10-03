@@ -30,5 +30,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
 
 call plug#end()
