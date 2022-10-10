@@ -52,3 +52,6 @@ autostart/
 evolution/
 vlc/
 .gsd-keyboard.settings-ported
+obs-studio/
+cef_user_data
+krulerrc
