@@ -14,6 +14,9 @@ nnoremap <SPACE> <Nop>
 " NerdCommenter
 let g:NERDSpaceDelims = 1
 
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
 " Python provider
 let g:python3_host_prog = "python"
 
