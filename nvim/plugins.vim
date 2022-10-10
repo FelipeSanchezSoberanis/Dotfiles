@@ -31,5 +31,6 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()

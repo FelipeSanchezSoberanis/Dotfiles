@@ -116,6 +116,12 @@ nnoremap <leader>ww :set wrap!<CR>
 " Toggle word wrapping
 autocmd FileType markdown nnoremap <buffer> <leader>toc :Toc<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
 
 " lua << EOF
