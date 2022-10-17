@@ -73,6 +73,8 @@ nnoremap <leader>ft /\VTODO<CR>
 " Find placeholders
 nnoremap <leader>fp /\V<++><CR>
 
+vnoremap <C-c> "+y
+
 " Center after search
 nnoremap n nzz
 nnoremap N Nzz
