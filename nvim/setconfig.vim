@@ -26,7 +26,8 @@ set diffopt+=vertical
 set linebreak
 set iskeyword-=_
 set iskeyword-=-
-set foldmethod=indent
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set splitbelow
 set splitright
 set ignorecase
