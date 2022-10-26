@@ -3,8 +3,8 @@ source /home/felipe/.config/nvim/setconfig.vim
 " List of plugins with vim plug
 source /home/felipe/.config/nvim/plugins.vim
 
-" Dracula as colorscheme
-colorscheme dracula
+" Catpuccin as colorscheme
+colorscheme catppuccin-mocha
 highlight Normal guibg=None
 
 " Space as leader
