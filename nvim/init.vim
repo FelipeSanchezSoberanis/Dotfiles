@@ -84,7 +84,7 @@ nnoremap { {zz
 nnoremap } }zz
 
 " Folding custom config
-nnoremap za zjzak
+" nnoremap za zjzak
 
 " Fugitive Conflict Resolution
 nnoremap <leader>gd :Gdiffsplit!<CR>
