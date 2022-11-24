@@ -31,3 +31,4 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/vim-easy-align'
 
 call plug#end()
+
