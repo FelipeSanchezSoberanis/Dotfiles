@@ -57,7 +57,8 @@ cef_user_data
 krulerrc
 nvim/spell/
 island/
-awesome/
+awesome/**
+!awesome/rc.lua
 nemo/
 caja/
 qt5ct/
