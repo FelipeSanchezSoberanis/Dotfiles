@@ -113,5 +113,5 @@ require('gitSignsConfig')
 require('treeSitterConfig')
 require('treeSitterContextConfig')
 require('indentBlankLinesConfig')
--- require('nvimlspconfig')
+require('nvimLspConfig')
 EOF
