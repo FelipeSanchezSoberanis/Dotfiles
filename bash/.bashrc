@@ -116,7 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="/home/felipe/Documents/executables/node-v18.12.1-linux-x64/bin:$PATH"
+export PATH="$HOME/Documents/executables/node-v18.12.1-linux-x64/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 neofetch
 
