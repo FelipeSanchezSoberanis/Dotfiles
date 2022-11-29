@@ -260,6 +260,7 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({}, "#118", function() awful.spawn("flameshot gui") end, { description = "Take screenshot", group = "media" }),
     awful.key({}, "#121", function() volume_widget:toggle() end, { description = "Toggle mute", group = "media" }),
     awful.key({}, "#122", function() volume_widget:dec(5) end,{ description = "Lower volume", group = "media" }),
     awful.key({}, "#123", function() volume_widget:inc(5) end,{ description = "Increase volume", group = "media" }),
