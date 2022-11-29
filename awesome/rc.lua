@@ -498,6 +498,9 @@ awful.rules.rules = {
      }
     },
 
+    -- Prevent inkscape from starting maximized
+    { rule = { class = "Ld-linux-x86-64.so.2" }, properties = { maximized = false  } },
+
     -- Floating clients.
     { rule_any = {
         instance = {
