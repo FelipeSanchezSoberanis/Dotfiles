@@ -5,13 +5,10 @@ local util = require 'lspconfig.util'
 local function get_typescript_server_path(root_dir)
 
     local global_ts =
-        '/home/felipe/.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js'
-    -- Alternative location if installed as root:
-    -- local global_ts = '/usr/local/lib/node_modules/typescript/lib/tsserverlibrary.js'
+        '/home/felipe/Documents/executables/node-v18.12.1-linux-x64/lib/node_modules/typescript/lib'
     local found_ts = ''
     local function check_dir(path)
-        found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib',
-                                  'tsserverlibrary.js')
+        found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
         if util.path.exists(found_ts) then return path end
     end
     if util.search_ancestors(root_dir, check_dir) then
@@ -116,7 +113,7 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
     'pyright', 'sumneko_lua', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
-    'bashls', 'vuels', 'dockerls', 'lemminx', 'eslint'
+    'bashls', 'dockerls', 'lemminx', 'eslint'
     -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server'
 }
 for _, lsp in ipairs(servers) do
@@ -155,54 +152,9 @@ for _, lsp in ipairs(servers) do
                 'typescriptreact', 'vue', 'json'
             },
             on_new_config = function(new_config, new_root_dir)
-                new_config.init_options.typescript.serverPath =
+                new_config.init_options.typescript.tsdk =
                     get_typescript_server_path(new_root_dir)
             end
-            -- on_attach = on_attach,
-            -- flags = {debounce_text_changes = 150},
-            -- filetypes = {
-            -- 'typescript', 'javascript', 'javascriptreact',
-            -- 'typescriptreact', 'vue', 'json'
-            -- },
-            -- init_options = {
-            -- typescript = {
-            -- serverPath = "/home/felipe/.npm-packages/lib/node_modules/typescript/lib/tsserverlibrary.js"
-            -- }
-            -- }
-        }
-    elseif (lsp == 'vuels') then
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
-            init_options = {
-                config = {
-                    css = {},
-                    emmet = {},
-                    html = {suggest = {}},
-                    javascript = {format = {}},
-                    stylusSupremacy = {},
-                    typescript = {format = {}},
-                    vetur = {
-                        completion = {
-                            autoImport = false,
-                            tagCasing = "kebab",
-                            useScaffoldSnippets = false
-                        },
-                        format = {
-                            defaultFormatter = {js = "none", ts = "none"},
-                            defaultFormatterOptions = {},
-                            scriptInitialIndent = false,
-                            styleInitialIndent = false
-                        },
-                        useWorkspaceDependencies = false,
-                        validation = {
-                            script = false,
-                            style = false,
-                            template = false
-                        }
-                    }
-                }
-            }
         }
     elseif (lsp == 'sumneko_lua') then
         nvim_lsp[lsp].setup {
