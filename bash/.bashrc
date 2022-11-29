@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 alias nk="kitty --detach ."
-alias copy="xclip -selection c"
+alias copy="tr -d '\n' | xclip -selection c"
 alias pasta="xclip -selection c -o"
 
 export PATH="$HOME/Documents/executables/node-v18.12.1-linux-x64/bin:$PATH"
