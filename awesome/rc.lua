@@ -269,7 +269,7 @@ globalkeys = gears.table.join(
     awful.key({}, "#123", function() volume_widget:inc(5) end,{ description = "Increase volume", group = "media" }),
     awful.key({}, "#233", function () brightness_widget:inc() end, {description = "Increase brightness", group = "media"}),
     awful.key({}, "#232", function () brightness_widget:dec() end, {description = "Decrease brightness", group = "media"}),
-    awful.key({ modkey }, "b", function () os.execute("lock-screen") end, {description = "Decrease brightness", group = "media"}),
+    awful.key({ modkey }, "b", function () os.execute("lock-screen") end, {description = "Lock screen", group = "media"}),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
