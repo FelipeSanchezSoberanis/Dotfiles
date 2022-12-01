@@ -4,7 +4,7 @@ source /home/felipe/.config/nvim/setConfigs.vim
 " Plugins
 source /home/felipe/.config/nvim/plugins.vim
 
-" Plugins
+" File indentations
 source /home/felipe/.config/nvim/fileIndentationsConfig.vim
 
 " Catpuccin as colorscheme
