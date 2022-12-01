@@ -7,6 +7,9 @@ source /home/felipe/.config/nvim/plugins.vim
 " File indentations
 source /home/felipe/.config/nvim/fileIndentationsConfig.vim
 
+" Formatters
+source /home/felipe/.config/nvim/formattersConfig.vim
+
 " Catpuccin as colorscheme
 colorscheme catppuccin-mocha
 highlight Normal guibg=None
