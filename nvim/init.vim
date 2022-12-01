@@ -4,6 +4,9 @@ source /home/felipe/.config/nvim/setConfigs.vim
 " Plugins
 source /home/felipe/.config/nvim/plugins.vim
 
+" Plugins
+source /home/felipe/.config/nvim/fileIndentationsConfig.vim
+
 " Catpuccin as colorscheme
 colorscheme catppuccin-mocha
 highlight Normal guibg=None
