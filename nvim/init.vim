@@ -10,9 +10,9 @@ source /home/felipe/.config/nvim/fileIndentationsConfig.vim
 " Formatters
 source /home/felipe/.config/nvim/formattersConfig.vim
 
-" Catpuccin as colorscheme
-colorscheme catppuccin-mocha
-highlight Normal guibg=None
+" Transparent background
+highlight Normal guibg=none
+highlight NonText guibg=none
 
 " Space as leader
 let mapleader=" "
@@ -120,4 +120,6 @@ require('treeSitterConfig')
 require('treeSitterContextConfig')
 require('indentBlankLinesConfig')
 require('nvimLspConfig')
+require('catppuccinConfig')
 EOF
+
