@@ -109,11 +109,15 @@ local on_attach = function(client, bufnr)
 
 end
 
+local project_name = vim.fn.getcwd():gsub("/", "__")
+
+local workspace_dir = '/home/felipe/.jdtls-data/' .. project_name
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
     'pyright', 'sumneko_lua', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
-    'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab'
+    'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab', 'jdtls'
     -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server'
 }
 for _, lsp in ipairs(servers) do
@@ -178,6 +182,31 @@ for _, lsp in ipairs(servers) do
                     telemetry = {enable = false}
                 }
             }
+        }
+    elseif (lsp == 'jdtls') then
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {debounce_text_changes = 150},
+            cmd = {
+                'java', '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+                '-Dosgi.bundles.defaultStartLevel=4',
+                '-Declipse.product=org.eclipse.jdt.ls.core.product',
+                '-Dlog.protocol=true', '-Dlog.level=ALL', '-Xms1g',
+                '--add-modules=ALL-SYSTEM', '--add-opens',
+                'java.base/java.util=ALL-UNNAMED', '--add-opens',
+                'java.base/java.lang=ALL-UNNAMED',
+                '-javaagent:/home/felipe/Documents/executables/lombok/lombok.jar', --
+                '-jar',
+                '/home/felipe/Documents/executables/jdt-language-server-1.9.0/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+                '-configuration',
+                '/home/felipe/Documents/executables/jdt-language-server-1.9.0/config_linux',
+                '-data', workspace_dir
+            },
+            root_dir = require('jdtls.setup').find_root({
+                '.git', 'mvnw', 'gradlew'
+            }),
+            settings = {java = {}},
+            init_options = {bundles = {}}
         }
     else
         nvim_lsp[lsp].setup {
