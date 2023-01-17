@@ -7,3 +7,6 @@ autocmd FileType java nnoremap <buffer> <leader>ff :w <CR> :silent !google-java-
 " Python formatter
 autocmd FileType python nnoremap <buffer> <leader>ff :w <CR> :silent !black % <CR>
 
+" Prettier formatter
+autocmd FileType vue,typescript,json nnoremap <buffer> <leader>ff :w <CR> :silent !prettier -w % <CR>
+
