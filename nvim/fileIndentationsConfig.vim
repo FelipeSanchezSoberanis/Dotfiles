@@ -26,3 +26,7 @@ autocmd FileType scss setlocal shiftwidth=2
 autocmd FileType scss setlocal tabstop=2
 autocmd FileType scss setlocal softtabstop=2
 
+autocmd FileType typescript setlocal shiftwidth=2
+autocmd FileType typescript setlocal tabstop=2
+autocmd FileType typescript setlocal softtabstop=2
+
