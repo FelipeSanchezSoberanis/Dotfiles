@@ -14,6 +14,9 @@ source /home/felipe/.config/nvim/formattersConfig.vim
 highlight Normal guibg=none
 highlight NonText guibg=none
 
+" Set cursorline color
+autocmd WinEnter * highlight CursorLine guibg=#403E3A
+
 " Space as leader
 let mapleader=" "
 nnoremap <SPACE> <Nop>

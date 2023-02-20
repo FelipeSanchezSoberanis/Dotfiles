@@ -32,3 +32,4 @@ set splitbelow
 set splitright
 set ignorecase
 set smartcase
+set cursorline
