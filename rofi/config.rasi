@@ -2,7 +2,7 @@
  *
  * Author : Aditya Shakya (adi1090x)
  * Github : @adi1090x
- * 
+ *
  * Configuration For Rofi Version: 1.7.3
  **/
 
@@ -51,9 +51,9 @@ configuration {
 	run-shell-command: "{terminal} -e {cmd}";
 
 	/*---------- Fallback Icon ----------*/
-	run,drun {
-		fallback-icon: "application-x-addon";
-	}
+	/* run,drun { */
+	/*     fallback-icon: "application-x-addon"; */
+	/* } */
 
 	/*---------- Window switcher settings ----------*/
 	window-match-fields: "title,class,role,name,desktop";
