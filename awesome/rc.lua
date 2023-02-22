@@ -260,6 +260,7 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ modkey }, "z", function() awful.spawn("zathura-open") end, { description = "Open pdf in zathura", group = "productivity" }),
     awful.key({}, "#173", function() awful.spawn("playerctl previous") end, { description = "Previous song", group = "media" }),
     awful.key({}, "#172", function() awful.spawn("playerctl play-pause") end, { description = "Play / pause", group = "media" }),
     awful.key({}, "#171", function() awful.spawn("playerctl next") end, { description = "Nerxt song", group = "media" }),
