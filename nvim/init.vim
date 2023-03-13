@@ -101,11 +101,11 @@ nnoremap gdl :diffget //3<CR>
 nnoremap <leader>nb :bnext<CR>
 nnoremap <leader>pb :bprevious<CR>
 
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * silent! mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+" augroup remember_folds
+"   autocmd!
+"   autocmd BufWinLeave * silent! mkview
+"   autocmd BufWinEnter * silent! loadview
+" augroup END
 
 " Toggle word wrapping
 nnoremap <leader>ww :set wrap!<CR>
