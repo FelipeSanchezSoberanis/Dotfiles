@@ -43,6 +43,10 @@ autocmd WinEnter * highlight CursorLine guibg=#403E3A
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
+" Center after page movement
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
 " Active nvim registers with clipboard
 let g:clipboard = {
   \   'name': 'xclip-xfce4-clipman',
