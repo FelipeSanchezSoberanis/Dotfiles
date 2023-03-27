@@ -121,7 +121,7 @@ alias copy="tr -d '\n' | xclip -selection c"
 alias pasta="xclip -selection c -o"
 alias nvim-clean="nvim -u /home/felipe/.config/nvim/init.noPlugins.vim"
 
-export PATH="$HOME/Documents/executables/node-v18.12.1-linux-x64/bin:$PATH"
+# export PATH="$HOME/Documents/executables/node-v18.12.1-linux-x64/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 neofetch
