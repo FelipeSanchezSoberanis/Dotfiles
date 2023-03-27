@@ -120,6 +120,7 @@ alias nk="kitty --detach ."
 alias copy="tr -d '\n' | xclip -selection c"
 alias pasta="xclip -selection c -o"
 alias nvim-clean="nvim -u /home/felipe/.config/nvim/init.noPlugins.vim"
+alias pip="python -m pip"
 
 export PATH="$HOME/Documents/executables/node-v18.15.0-linux-x64/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
