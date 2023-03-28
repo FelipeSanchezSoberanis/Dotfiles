@@ -122,7 +122,7 @@ alias pasta="xclip -selection c -o"
 alias nvim-clean="nvim -u /home/felipe/.config/nvim/init.noPlugins.vim"
 alias pip="python -m pip"
 
-export PATH="$HOME/Documents/executables/node-v18.15.0-linux-x64/bin:$PATH"
+export PATH="$(dirname $(readlink -f $(which node))):$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 neofetch
