@@ -112,7 +112,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
-    'pyright', 'sumneko_lua', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
+    'pyright', 'lua_ls', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
     'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab'
     -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server'
 }
@@ -156,7 +156,7 @@ for _, lsp in ipairs(servers) do
                     get_typescript_server_path(new_root_dir)
             end
         }
-    elseif (lsp == 'sumneko_lua') then
+    elseif (lsp == 'lua_ls') then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
             flags = {debounce_text_changes = 150},
