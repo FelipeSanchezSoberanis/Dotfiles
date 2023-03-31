@@ -122,6 +122,7 @@ alias pasta="xclip -selection c -o"
 alias nvim-clean="nvim -u /home/felipe/.config/nvim/init.noPlugins.vim"
 alias pip="python -m pip"
 
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export PATH="$(dirname $(readlink -f $(which node))):$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
