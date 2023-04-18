@@ -113,8 +113,8 @@ end
 -- map buffer local keybindings when the language server attaches
 local servers = {
     'pyright', 'lua_ls', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
-    'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab'
-    -- 'texlab', 'clangd', 'lemminx', 'rust_analyzer', 'arduino_language_server'
+    'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab',
+    'arduino_language_server'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls') then
@@ -133,15 +133,6 @@ for _, lsp in ipairs(servers) do
             on_attach = on_attach,
             flags = {debounce_text_changes = 150},
             capabilities = capabilities
-        }
-    elseif (lsp == 'arduino_language_server') then
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
-            cmd = {
-                'arduino-language-server', '-clangd', 'clangd', '-cli',
-                'arduino-cli', '-cli-config', '~/.arduino15/arduino-cli.yaml'
-            }
         }
     elseif (lsp == 'volar') then
         nvim_lsp[lsp].setup {
