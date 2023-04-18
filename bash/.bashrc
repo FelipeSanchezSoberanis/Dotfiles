@@ -125,6 +125,7 @@ alias pip="python -m pip"
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export PATH="$(dirname $(readlink -f $(which node))):$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 neofetch
 
