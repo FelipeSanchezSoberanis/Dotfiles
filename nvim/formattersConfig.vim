@@ -11,5 +11,5 @@ autocmd FileType python nnoremap <buffer> <leader>ff :w <CR> :silent !black % <C
 autocmd FileType vue,typescript,json nnoremap <buffer> <leader>ff :w <CR> :silent !prettier -w % <CR>
 
 " Arduino formatter
-autocmd FileType arduino nnoremap <buffer> <leader>ff :w <CR> :silent !clang-format -i % <CR>
+autocmd FileType arduino nnoremap <buffer> <leader>ff :w <CR> :silent !clang-format -style="{IndentWidth: 4}" -i % <CR>
 
