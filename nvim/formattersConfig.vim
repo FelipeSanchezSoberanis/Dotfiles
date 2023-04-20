@@ -1,10 +1,10 @@
 " Lua formatter
 autocmd FileType lua nnoremap <buffer> <leader>ff :w <CR> :silent !lua-format -i % <CR>
 
-" Java formatter
-autocmd FileType java nnoremap <buffer> <leader>ff :w <CR> :silent !google-java-format % <CR>
-" Example per file formatting
-autocmd BufRead,BufNewFile /home/felipe/Downloads/dir1/*.java nnoremap <buffer> <leader>ff :!echo $PWD <CR>
+" Java formatters
+" autocmd FileType java nnoremap <buffer> <leader>ff :w <CR> :silent !google-java-format % <CR>
+autocmd BufRead,BufNewFile *.java nnoremap <buffer> <leader>ff :w <CR> :silent !google-java-format % <CR>
+autocmd BufRead,BufNewFile /home/felipe/Documents/projects/erp-matrices/backend/*.java nnoremap <buffer> <leader>ff :w <CR> :silent !prettier -w % <CR>
 
 " Python formatter
 autocmd FileType python nnoremap <buffer> <leader>ff :w <CR> :silent !black % <CR>
