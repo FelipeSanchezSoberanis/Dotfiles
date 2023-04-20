@@ -3,6 +3,8 @@ autocmd FileType lua nnoremap <buffer> <leader>ff :w <CR> :silent !lua-format -i
 
 " Java formatter
 autocmd FileType java nnoremap <buffer> <leader>ff :w <CR> :silent !google-java-format % <CR>
+" Example per file formatting
+autocmd BufRead,BufNewFile /home/felipe/Downloads/dir1/*.java nnoremap <buffer> <leader>ff :!echo $PWD <CR>
 
 " Python formatter
 autocmd FileType python nnoremap <buffer> <leader>ff :w <CR> :silent !black % <CR>
