@@ -31,7 +31,7 @@ autocmd BufRead,BufNewFile *.java nnoremap <buffer> <leader>ff :call FormatGoogl
 autocmd BufRead,BufNewFile ~/Documents/projects/erp-matrices/backend/*.java nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
 
 " Python formatters
-autocmd BufRead,BufNewFile *.java nnoremap <buffer> <leader>ff :call FormatBlack() <CR>
+autocmd BufRead,BufNewFile *.py nnoremap <buffer> <leader>ff :call FormatBlack() <CR>
 
 " Prettier formatters
 autocmd BufRead,BufNewFile *.vue,*.ts,*.json nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
