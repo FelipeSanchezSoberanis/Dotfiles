@@ -4,5 +4,5 @@ function SetBufferIndent(size)
     exe 'setlocal softtabstop=' . a:size
 endfunction
 
-autocmd BufRead,BufNewFile *.json,*.xml,*.xslt,*.css,*.scss,*.typescript call SetBufferIndent(2)
+autocmd BufRead,BufNewFile *.json,*.xml,*.xslt,*.css,*.scss,*.ts call SetBufferIndent(2)
 
