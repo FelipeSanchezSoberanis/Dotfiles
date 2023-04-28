@@ -13,9 +13,9 @@ function FormatLua()
     :silent !lua-format -i %
 endfunction
 
-function FormatBlack()
+function FormatBlack(maxWidth)
     :w
-    :silent !black %
+    exe 'silent !black -l ' . a:maxWidth . ' %'
 endfunction
 
 function FormatClang()
@@ -31,7 +31,7 @@ autocmd BufRead,BufNewFile *.java nnoremap <buffer> <leader>ff :call FormatGoogl
 autocmd BufRead,BufNewFile ~/Documents/projects/erp-matrices/backend/*.java nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
 
 " Python formatters
-autocmd BufRead,BufNewFile *.py nnoremap <buffer> <leader>ff :call FormatBlack() <CR>
+autocmd BufRead,BufNewFile *.py nnoremap <buffer> <leader>ff :call FormatBlack(100) <CR>
 
 " Prettier formatters
 autocmd BufRead,BufNewFile *.vue,*.ts,*.json nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
