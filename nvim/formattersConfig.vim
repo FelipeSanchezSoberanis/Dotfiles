@@ -23,6 +23,11 @@ function FormatClang()
     :silent !clang-format -style="{IndentWidth: 4}" -i %
 endfunction
 
+function FormatRust()
+    :w
+    :silent !rustfmt %
+endfunction
+
 " Lua formatters
 autocmd BufRead,BufNewFile *.lua nnoremap <buffer> <leader>ff :call FormatLua() <CR>
 
@@ -38,4 +43,7 @@ autocmd BufRead,BufNewFile *.vue,*.ts,*.json nnoremap <buffer> <leader>ff :call 
 
 " Arduino formatters
 autocmd BufRead,BufNewFile *.ino nnoremap <buffer> <leader>ff :call FormatClang() <CR>
+
+" Rust formatters
+autocmd BufRead,BufNewFile *.rs nnoremap <buffer> <leader>ff :call FormatRust() <CR>
 
