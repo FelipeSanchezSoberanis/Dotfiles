@@ -114,7 +114,7 @@ end
 local servers = {
     'pyright', 'lua_ls', 'volar', 'emmet_ls', 'cssls', 'html', 'jsonls',
     'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab',
-    'arduino_language_server', 'rust_analyzer', 'angularls'
+    'arduino_language_server', 'rust_analyzer'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls') then
