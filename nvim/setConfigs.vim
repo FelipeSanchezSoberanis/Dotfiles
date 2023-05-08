@@ -34,3 +34,5 @@ set ignorecase
 set smartcase
 set cursorline
 
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+
