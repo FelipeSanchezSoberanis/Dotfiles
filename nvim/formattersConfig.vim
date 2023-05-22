@@ -20,7 +20,7 @@ endfunction
 
 function FormatClang()
     :w
-    :silent !clang-format -style="{IndentWidth: 4}" -i %
+    :silent !clang-format --style=Google -i %
 endfunction
 
 function FormatRust()
