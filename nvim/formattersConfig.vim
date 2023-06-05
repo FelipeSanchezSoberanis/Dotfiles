@@ -47,3 +47,6 @@ autocmd BufRead,BufNewFile *.ino nnoremap <buffer> <leader>ff :call FormatClang(
 " Rust formatters
 autocmd BufRead,BufNewFile *.rs nnoremap <buffer> <leader>ff :call FormatRust() <CR>
 
+" C formatters
+autocmd BufRead,BufNewFile *.c nnoremap <buffer> <leader>ff :call FormatClang() <CR>
+
