@@ -74,6 +74,5 @@ xviewer/
 yelp/
 Arduino IDE/
 arduino-ide/
-composer/keys.dev.pub
-composer/keys.tags.pub
+composer/
 
