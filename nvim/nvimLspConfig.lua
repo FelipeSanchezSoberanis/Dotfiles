@@ -112,9 +112,9 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
-    'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls',
-    'bashls', 'dockerls', 'lemminx', 'eslint', 'texlab',
-    'arduino_language_server', 'rust_analyzer', 'clangd'
+    'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls', 'bashls',
+    'dockerls', 'lemminx', 'eslint', 'texlab', 'arduino_language_server',
+    'rust_analyzer', 'clangd', 'phpactor'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'jdtls') then
