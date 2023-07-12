@@ -4,9 +4,6 @@ source /home/felipe/.config/nvim/setConfigs.vim
 " Plugins
 source /home/felipe/.config/nvim/plugins.vim
 
-" File indentations
-source /home/felipe/.config/nvim/fileIndentationsConfig.vim
-
 " Formatters
 source /home/felipe/.config/nvim/formattersConfig.vim
 
