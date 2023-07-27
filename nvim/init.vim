@@ -26,7 +26,7 @@ let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
 " Python provider
-let g:python3_host_prog = "python3"
+let g:python3_host_prog = "python"
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
@@ -128,3 +128,7 @@ EOF
 highlight CursorLine guibg=#403E3A
 highlight LineNr guifg=#7f849c
 highlight CursorLineNr guifg=#a6adc8
+
+" Catpuccin for vim airline
+let g:airline_theme = 'catppuccin'
+

@@ -135,5 +135,5 @@ eval "$(starship init bash)"
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 . "$HOME/.cargo/env"
