@@ -29,6 +29,7 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/vim-easy-align'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
