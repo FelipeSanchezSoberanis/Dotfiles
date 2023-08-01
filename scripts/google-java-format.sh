@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-java -jar ~/Documents/executables/google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar -i -a $1
+java -jar /home/felipe/Documents/executables/google-java-format/core/target/google-java-format-HEAD-SNAPSHOT-all-deps.jar $*
 

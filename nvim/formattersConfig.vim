@@ -5,7 +5,7 @@ endfunction
 
 function FormatGoogleJavaFormat()
     :w
-    :silent !google-java-format %
+    :silent !google-java-format -i %
 endfunction
 
 function FormatLua()
