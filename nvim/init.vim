@@ -55,8 +55,13 @@ nnoremap <leader>nt :NERDTreeToggle<CR>:NERDTreeRefreshRoot<CR>
 " Trim trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Tearch filename in working directory
-nnoremap <C-p> :GFiles<CR>
+" FZF but only search from the current directory down
+command! -bang -nargs=? GFilesCwd
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(<q-args> == '?' ? { 'dir': getcwd(), 'placeholder': '' } : { 'dir': getcwd() }), <bang>0)
+
+" Search filename in working directory
+" nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :GFilesCwd<CR>
 nnoremap <leader>a<C-p> :Files<CR>
 nnoremap <C-f> :Ag<CR>
 
