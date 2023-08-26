@@ -39,7 +39,7 @@ autocmd BufRead,BufNewFile ~/Documents/projects/erp-matrices/backend/*.java nnor
 autocmd BufRead,BufNewFile *.py nnoremap <buffer> <leader>ff :call FormatBlack(100) <CR>
 
 " Prettier formatters
-autocmd BufRead,BufNewFile *.vue,*.ts,*.json,*.html,*.js nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
+autocmd BufRead,BufNewFile *.vue,*.ts,*.json,*.html,*.js,*.scss,*.tsx nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
 
 " Arduino formatters
 autocmd BufRead,BufNewFile *.ino nnoremap <buffer> <leader>ff :call FormatClang() <CR>
