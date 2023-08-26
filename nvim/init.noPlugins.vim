@@ -31,6 +31,7 @@ set splitright
 set ignorecase
 set smartcase
 set cursorline
+syntax off
 
 " Transparent background
 highlight Normal guibg=none
