@@ -128,6 +128,8 @@ export PATH="$(dirname $(readlink -f $(which node))):$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+export ANDROID_HOME="/home/felipe/Android/sdk"
+
 neofetch
 
 eval "$(starship init bash)"
