@@ -130,6 +130,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 export ANDROID_HOME="/home/felipe/Android/sdk"
+export NODE_HOME="$(dirname $(dirname $(which node)))"
 
 neofetch
 

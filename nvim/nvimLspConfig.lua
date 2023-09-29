@@ -1,11 +1,7 @@
+local NODE_HOME = os.getenv("NODE_HOME")
+
 -- Setup nvim-cmp.
 local cmp = require('cmp')
-
-local function get_typescript_server_path()
-    local global_ts =
-        '/home/felipe/Documents/executables/node-v18.15.0-linux-x64/lib/node_modules/typescript/lib'
-    return global_ts
-end
 
 cmp.setup({
     snippet = {
@@ -124,6 +120,19 @@ for _, lsp in ipairs(servers) do
             flags = {debounce_text_changes = 150},
             capabilities = capabilities
         }
+    elseif (lsp == 'angularls') then
+        local cmd = {
+            'ngserver', '--stdio', '--tsProbeLocations',
+            NODE_HOME .. '/lib/node_modules/', '--ngProbeLocations',
+            './node_modules/'
+        }
+
+        nvim_lsp[lsp].setup {
+            on_attach = on_attach,
+            flags = {debounce_text_changes = 150},
+            cmd = cmd,
+            on_new_config = function(new_config) new_config.cmd = cmd end
+        }
     elseif (lsp == 'volar') then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
@@ -133,8 +142,8 @@ for _, lsp in ipairs(servers) do
                 'typescriptreact', 'vue', 'json'
             },
             on_new_config = function(new_config)
-                new_config.init_options.typescript.tsdk =
-                    get_typescript_server_path()
+                new_config.init_options.typescript.tsdk = NODE_HOME ..
+                                                              '/lib/node_modules/typescript/lib'
             end
         }
     elseif (lsp == 'lua_ls') then
