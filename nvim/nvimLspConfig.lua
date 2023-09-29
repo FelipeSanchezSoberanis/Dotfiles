@@ -1,21 +1,10 @@
 -- Setup nvim-cmp.
 local cmp = require('cmp')
 
-local util = require 'lspconfig.util'
-local function get_typescript_server_path(root_dir)
-
+local function get_typescript_server_path()
     local global_ts =
         '/home/felipe/Documents/executables/node-v18.15.0-linux-x64/lib/node_modules/typescript/lib'
-    local found_ts = ''
-    local function check_dir(path)
-        found_ts = util.path.join(path, 'node_modules', 'typescript', 'lib')
-        if util.path.exists(found_ts) then return path end
-    end
-    if util.search_ancestors(root_dir, check_dir) then
-        return found_ts
-    else
-        return global_ts
-    end
+    return global_ts
 end
 
 cmp.setup({
@@ -143,9 +132,9 @@ for _, lsp in ipairs(servers) do
                 'typescript', 'javascript', 'javascriptreact',
                 'typescriptreact', 'vue', 'json'
             },
-            on_new_config = function(new_config, new_root_dir)
+            on_new_config = function(new_config)
                 new_config.init_options.typescript.tsdk =
-                    get_typescript_server_path(new_root_dir)
+                    get_typescript_server_path()
             end
         }
     elseif (lsp == 'lua_ls') then
