@@ -123,6 +123,7 @@ alias nvim-clean="nvim -u /home/felipe/.config/nvim/init.noPlugins.vim"
 alias pip="python -m pip"
 alias preview-file="fdfind -H -E '.git/' -t f | fzf --preview '~/.nvim/plugged/fzf.vim/bin/preview.sh {}' | xargs batcat"
 alias ls="eza --icons"
+alias du="dust"
 
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export PATH="$(dirname $(readlink -f $(which node))):$PATH"
