@@ -121,10 +121,10 @@ for _, lsp in ipairs(servers) do
             capabilities = capabilities
         }
     elseif (lsp == 'angularls') then
+        local node_modules = NODE_HOME .. '/lib/node_modules/'
         local cmd = {
-            'ngserver', '--stdio', '--tsProbeLocations',
-            NODE_HOME .. '/lib/node_modules/', '--ngProbeLocations',
-            './node_modules/'
+            'ngserver', '--stdio', '--tsProbeLocations', node_modules,
+            '--ngProbeLocations', node_modules
         }
 
         nvim_lsp[lsp].setup {

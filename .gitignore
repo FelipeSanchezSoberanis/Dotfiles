@@ -78,4 +78,5 @@ composer/
 Google/
 Android Open Source Project/
 screenruler/
+.luarc.json
 

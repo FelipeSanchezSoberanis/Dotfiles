@@ -134,8 +134,14 @@ export PATH="$HOME/go/bin:$PATH"
 export ANDROID_HOME="/home/felipe/Android/sdk"
 export NODE_HOME="$(dirname $(dirname $(which node)))"
 
+if  command -v ng &> /dev/null
+then
+    source <(ng completion script)
+fi
+
 neofetch
 
 eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"
+
