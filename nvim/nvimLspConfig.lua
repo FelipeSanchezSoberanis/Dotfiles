@@ -94,6 +94,16 @@ local on_attach = function(client, bufnr)
 
 end
 
+-- Show borders around floating windows
+require('lspconfig.ui.windows').default_options.border = 'single'
+
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = 'single'
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
