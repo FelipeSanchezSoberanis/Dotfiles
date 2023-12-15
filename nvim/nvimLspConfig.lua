@@ -4,6 +4,7 @@ local NODE_HOME = os.getenv("NODE_HOME")
 local cmp = require('cmp')
 
 cmp.setup({
+    window = {completion = {border = 'single'}},
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
