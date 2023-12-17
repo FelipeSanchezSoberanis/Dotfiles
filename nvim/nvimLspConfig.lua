@@ -1,4 +1,5 @@
-local NODE_HOME = os.getenv("NODE_HOME")
+local NODE_MODULES = os.getenv("NODE_HOME") .. '/lib/node_modules'
+local DEBOUNCE_TIME = 500;
 
 -- Setup nvim-cmp.
 local cmp = require('cmp')
@@ -111,56 +112,46 @@ local servers = {
     'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls', 'bashls',
     'dockerls', 'lemminx', 'eslint', 'texlab', 'arduino_language_server',
     'rust_analyzer', 'clangd', 'phpactor', 'kotlin_language_server',
-    'angularls', 'emmet_ls'
+    'angularls', 'emmet_ls', 'tsserver'
 }
 for _, lsp in ipairs(servers) do
-    if (lsp == 'jdtls') then
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
-            cmd = {'jdtls'}
-        }
-    elseif (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp ==
-        'eslint') then
+    if (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp == 'eslint') then
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities.textDocument.completion.completionItem.snippetSupport =
             true
 
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
             capabilities = capabilities
         }
     elseif (lsp == 'angularls') then
-        local node_modules = NODE_HOME .. '/lib/node_modules/'
         local cmd = {
-            'ngserver', '--stdio', '--tsProbeLocations', node_modules,
-            '--ngProbeLocations', node_modules
+            'ngserver', '--stdio', '--tsProbeLocations', NODE_MODULES,
+            '--ngProbeLocations', NODE_MODULES
         }
 
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
             cmd = cmd,
             on_new_config = function(new_config) new_config.cmd = cmd end
         }
-    elseif (lsp == 'volar') then
+    elseif (lsp == 'tsserver') then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
-            filetypes = {
-                'typescript', 'javascript', 'javascriptreact',
-                'typescriptreact', 'vue', 'json'
-            },
-            on_new_config = function(new_config)
-                new_config.init_options.typescript.tsdk = NODE_HOME ..
-                                                              '/lib/node_modules/typescript/lib'
-            end
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
+            init_options = {
+                hostInfo = "neovim",
+                tsserver = {
+                    path = NODE_MODULES .. '/typescript/lib/tsserver.js'
+                }
+            }
         }
     elseif (lsp == 'lua_ls') then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = 150},
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
             settings = {
                 Lua = {
                     runtime = {
@@ -183,7 +174,7 @@ for _, lsp in ipairs(servers) do
     else
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = 150}
+            flags = {debounce_text_changes = DEBOUNCE_TIME}
         }
     end
 end
