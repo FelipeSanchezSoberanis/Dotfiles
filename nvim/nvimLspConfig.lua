@@ -123,7 +123,8 @@ for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
             flags = {debounce_text_changes = DEBOUNCE_TIME},
-            capabilities = capabilities
+            capabilities = capabilities,
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     elseif (lsp == 'angularls') then
         local cmd = {
@@ -135,7 +136,8 @@ for _, lsp in ipairs(servers) do
             on_attach = on_attach,
             flags = {debounce_text_changes = DEBOUNCE_TIME},
             cmd = cmd,
-            on_new_config = function(new_config) new_config.cmd = cmd end
+            on_new_config = function(new_config) new_config.cmd = cmd end,
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     elseif (lsp == 'tsserver') then
         nvim_lsp[lsp].setup {
@@ -146,7 +148,8 @@ for _, lsp in ipairs(servers) do
                 tsserver = {
                     path = NODE_MODULES .. '/typescript/lib/tsserver.js'
                 }
-            }
+            },
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     elseif (lsp == 'lua_ls') then
         nvim_lsp[lsp].setup {
@@ -169,12 +172,14 @@ for _, lsp in ipairs(servers) do
                     -- Do not send telemetry data containing a randomized but unique identifier
                     telemetry = {enable = false}
                 }
-            }
+            },
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     else
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME}
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     end
 end
