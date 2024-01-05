@@ -124,10 +124,8 @@ package.path = package.path .. ';/home/felipe/.config/nvim/?.lua'
 require('gitSignsConfig')
 require('treeSitterConfig')
 require('treeSitterContextConfig')
-require('indentBlankLinesConfig')
 require('nvimLspConfig')
 require('catppuccinConfig')
-require('troubleConfig')
 EOF
 
 " Set colors
