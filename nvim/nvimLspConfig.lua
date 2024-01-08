@@ -112,7 +112,7 @@ local servers = {
     'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls', 'bashls',
     'dockerls', 'lemminx', 'eslint', 'texlab', 'arduino_language_server',
     'rust_analyzer', 'clangd', 'phpactor', 'kotlin_language_server',
-    'angularls', 'emmet_ls', 'tsserver'
+    'angularls', 'emmet_ls', 'tsserver', 'yamlls'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp == 'eslint') then
