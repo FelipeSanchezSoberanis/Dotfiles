@@ -179,6 +179,24 @@ local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 
+local watch = require("awful.widget.watch")
+
+local numlock_widget = wibox.widget {widget = wibox.widget.textbox}
+watch([[sh -c "xset q | grep -i caps | awk '{print $8}'"]], 1,
+      function(widget, stdout, stderr, exit_reason, exit_code)
+    numlock_widget.markup = "numlock: <b>" .. stdout .. "</b>"
+end, numlock_widget)
+
+local bloq_mayus_widget = wibox.widget {widget = wibox.widget.textbox}
+watch([[sh -c "xset q | grep -i caps | awk '{print $4}'"]], 1,
+      function(widget, stdout, stderr, exit_reason, exit_code)
+    if string.match(stdout, "on") then
+        bloq_mayus_widget.markup = "<b>A</b>"
+    else
+        bloq_mayus_widget.markup = "<b>a</b>"
+    end
+end, bloq_mayus_widget)
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     -- set_wallpaper(s)
@@ -234,6 +252,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             spacing = 10,
             layout = wibox.layout.fixed.horizontal,
+            bloq_mayus_widget,
+            numlock_widget,
             mykeyboardlayout,
             wibox.widget.systray(),
             volume_widget(),
