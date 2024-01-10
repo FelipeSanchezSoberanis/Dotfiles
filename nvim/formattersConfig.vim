@@ -28,6 +28,12 @@ function FormatRust()
     :silent !rustfmt %
 endfunction
 
+
+function FormatXml()
+    :w
+    :silent !xmllint --format % --output %
+endfunction
+
 " Lua formatters
 autocmd BufRead,BufNewFile *.lua nnoremap <buffer> <leader>ff :call FormatLua() <CR>
 
@@ -37,6 +43,9 @@ autocmd BufRead,BufNewFile ~/Documents/projects/erp-matrices/backend/*.java nnor
 
 " Python formatters
 autocmd BufRead,BufNewFile *.py nnoremap <buffer> <leader>ff :call FormatBlack(100) <CR>
+
+" XML formatters
+autocmd BufRead,BufNewFile *.xml nnoremap <buffer> <leader>ff :call FormatXml() <CR>
 
 " Prettier formatters
 autocmd BufRead,BufNewFile *.vue,*.ts,*.json,*.html,*.js,*.scss,*.tsx nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
