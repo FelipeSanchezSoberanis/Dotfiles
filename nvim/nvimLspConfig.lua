@@ -112,7 +112,7 @@ local servers = {
     'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls', 'bashls',
     'dockerls', 'lemminx', 'eslint', 'texlab', 'arduino_language_server',
     'rust_analyzer', 'clangd', 'phpactor', 'kotlin_language_server',
-    'angularls', 'emmet_ls', 'tsserver', 'yamlls'
+    'angularls', 'emmet_ls', 'tsserver', 'yamlls', 'groovyls'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp == 'eslint') then
@@ -173,6 +173,16 @@ for _, lsp in ipairs(servers) do
                     telemetry = {enable = false}
                 }
             },
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
+        }
+    elseif (lsp == 'groovyls') then
+        nvim_lsp[lsp].setup {
+            cmd = {
+                'java', '-jar',
+                '/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar'
+            },
+            on_attach = on_attach,
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     else
