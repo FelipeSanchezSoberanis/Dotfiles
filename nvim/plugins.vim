@@ -2,7 +2,6 @@ call plug#begin('~/.nvim/plugged')
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'jiangmiao/auto-pairs'
-" Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -30,7 +29,6 @@ Plug 'preservim/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'folke/trouble.nvim'
 
 call plug#end()
 
