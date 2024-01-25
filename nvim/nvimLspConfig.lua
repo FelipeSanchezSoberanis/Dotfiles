@@ -112,7 +112,7 @@ local servers = {
     'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls', 'bashls',
     'dockerls', 'lemminx', 'eslint', 'texlab', 'arduino_language_server',
     'rust_analyzer', 'clangd', 'phpactor', 'kotlin_language_server',
-    'angularls', 'emmet_ls', 'tsserver', 'yamlls', 'groovyls'
+    'angularls', 'emmet_ls', 'yamlls', 'groovyls'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp == 'eslint') then
@@ -137,18 +137,6 @@ for _, lsp in ipairs(servers) do
             flags = {debounce_text_changes = DEBOUNCE_TIME},
             cmd = cmd,
             on_new_config = function(new_config) new_config.cmd = cmd end,
-            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
-        }
-    elseif (lsp == 'tsserver') then
-        nvim_lsp[lsp].setup {
-            on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
-            init_options = {
-                hostInfo = "neovim",
-                tsserver = {
-                    path = NODE_MODULES .. '/typescript/lib/tsserver.js'
-                }
-            },
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     elseif (lsp == 'lua_ls') then
@@ -180,6 +168,19 @@ for _, lsp in ipairs(servers) do
             cmd = {
                 'java', '-jar',
                 '/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar'
+            },
+            on_attach = on_attach,
+            flags = {debounce_text_changes = DEBOUNCE_TIME},
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
+        }
+    elseif (lsp == 'volar') then
+        nvim_lsp[lsp].setup {
+            filetypes = {
+                'typescript', 'javascript', 'javascriptreact',
+                'typescriptreact', 'vue', 'json'
+            },
+            init_options = {
+                typescript = {tsdk = NODE_MODULES .. '/typescript/lib'}
             },
             on_attach = on_attach,
             flags = {debounce_text_changes = DEBOUNCE_TIME},
