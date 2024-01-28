@@ -109,10 +109,10 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
-    'pyright', 'lua_ls', 'volar', 'cssls', 'html', 'jsonls', 'bashls',
-    'dockerls', 'lemminx', 'eslint', 'texlab', 'arduino_language_server',
-    'rust_analyzer', 'clangd', 'phpactor', 'kotlin_language_server',
-    'angularls', 'emmet_ls', 'yamlls', 'groovyls'
+    'pyright', 'lua_ls', 'cssls', 'html', 'jsonls', 'bashls', 'dockerls',
+    'lemminx', 'eslint', 'texlab', 'arduino_language_server', 'rust_analyzer',
+    'clangd', 'phpactor', 'kotlin_language_server', 'angularls', 'emmet_ls',
+    'yamlls', 'groovyls', 'tsserver'
 }
 for _, lsp in ipairs(servers) do
     if (lsp == 'html' or lsp == 'cssls' or lsp == 'jsonls' or lsp == 'eslint') then
@@ -173,18 +173,17 @@ for _, lsp in ipairs(servers) do
             flags = {debounce_text_changes = DEBOUNCE_TIME},
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
-    elseif (lsp == 'volar') then
+    elseif (lsp == 'tsserver') then
         nvim_lsp[lsp].setup {
-            filetypes = {
-                'typescript', 'javascript', 'javascriptreact',
-                'typescriptreact', 'vue', 'json'
-            },
-            init_options = {
-                typescript = {tsdk = NODE_MODULES .. '/typescript/lib'}
-            },
             on_attach = on_attach,
             flags = {debounce_text_changes = DEBOUNCE_TIME},
-            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}},
+            init_options = {
+                host_info = 'neovim',
+                tsserver = {
+                    path = NODE_MODULES .. '/typescript/lib/tsserver.js'
+                }
+            }
         }
     else
         nvim_lsp[lsp].setup {
