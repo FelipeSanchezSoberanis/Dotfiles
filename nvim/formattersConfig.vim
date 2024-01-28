@@ -10,7 +10,7 @@ endfunction
 
 function FormatLua()
     :w
-    :silent !lua-format -i %
+    :silent !lua-format --single-quote-to-double-quote -i %
 endfunction
 
 function FormatBlack(maxWidth)

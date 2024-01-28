@@ -7,10 +7,6 @@ source /home/felipe/.config/nvim/plugins.vim
 " Formatters
 source /home/felipe/.config/nvim/formattersConfig.vim
 
-" Transparent background
-highlight Normal guibg=none
-highlight NonText guibg=none
-
 " Space as leader
 let mapleader=" "
 nnoremap <SPACE> <Nop>
@@ -134,5 +130,5 @@ highlight LineNr guifg=#7f849c
 highlight CursorLineNr guifg=#a6adc8
 
 " Catpuccin for vim airline
-let g:airline_theme = 'catppuccin'
+" let g:airline_theme = 'catppuccin'
 
