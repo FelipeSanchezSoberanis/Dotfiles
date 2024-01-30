@@ -256,7 +256,7 @@ awful.screen.connect_for_each_screen(function(s)
             numlock_widget,
             mykeyboardlayout,
             wibox.widget.systray(),
-            volume_widget(),
+            volume_widget({card = 0}),
             brightness_widget({
                 program = "brightnessctl",
                 step = 2,
