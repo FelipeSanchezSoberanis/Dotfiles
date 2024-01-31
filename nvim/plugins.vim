@@ -29,6 +29,7 @@ Plug 'preservim/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
