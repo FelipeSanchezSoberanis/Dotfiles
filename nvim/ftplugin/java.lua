@@ -67,14 +67,14 @@ local config = {
         'java.base/java.lang=ALL-UNNAMED', -- 💀
         '-javaagent:/home/felipe/Documents/executables/lombok/lombok.jar', --
         '-jar',
-        '/home/felipe/Documents/executables/jdt-language-server-1.9.0/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+        '/home/felipe/Documents/executables/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
         -- Must point to the                                                     Change this to
         -- eclipse.jdt.ls installation                                           the actual version
 
         -- 💀
         '-configuration',
-        '/home/felipe/Documents/executables/jdt-language-server-1.9.0/config_linux',
+        '/home/felipe/Documents/executables/jdtls/config_linux',
         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
         -- Must point to the                      Change to one of `linux`, `win` or `mac`
         -- eclipse.jdt.ls installation            Depending on your system.
