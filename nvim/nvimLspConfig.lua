@@ -5,7 +5,11 @@ local DEBOUNCE_TIME = 500;
 local cmp = require('cmp')
 
 cmp.setup({
-    window = {completion = {border = 'single'}},
+    completion = {autocomplete = false},
+    window = {
+        completion = {border = "single"},
+        documentation = {border = "single"}
+    },
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
