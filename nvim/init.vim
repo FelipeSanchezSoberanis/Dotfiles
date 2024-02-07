@@ -122,6 +122,7 @@ require('treeSitterConfig')
 require('treeSitterContextConfig')
 require('nvimLspConfig')
 require('catppuccinConfig')
+require('indentBlanklineConfig')
 EOF
 
 " Set colors
