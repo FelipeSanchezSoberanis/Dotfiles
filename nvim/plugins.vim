@@ -30,6 +30,7 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
 
