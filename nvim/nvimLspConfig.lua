@@ -1,8 +1,22 @@
 local NODE_MODULES = os.getenv("NODE_HOME") .. "/lib/node_modules"
-local DEBOUNCE_TIME = 500;
+local NVIM_CMP_DEBOUNCE_TIME = 350;
 
 -- Setup nvim-cmp.
 local cmp = require("cmp")
+
+local timer = vim.loop.new_timer()
+local function cmp_complete_debounced()
+    timer:stop()
+    timer:start(NVIM_CMP_DEBOUNCE_TIME, 0, vim.schedule_wrap(
+                    function()
+            cmp.complete({reason = cmp.ContextReason.Auto})
+        end))
+end
+
+vim.api.nvim_create_autocmd({"TextChangedI", "TextChangedP"}, {
+    callback = function() cmp_complete_debounced() end,
+    pattern = "*"
+})
 
 cmp.setup({
     completion = {autocomplete = false},
@@ -126,7 +140,6 @@ for _, lsp in ipairs(servers) do
 
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
             capabilities = capabilities,
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
@@ -138,7 +151,6 @@ for _, lsp in ipairs(servers) do
 
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
             cmd = cmd,
             on_new_config = function(new_config) new_config.cmd = cmd end,
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
@@ -146,7 +158,6 @@ for _, lsp in ipairs(servers) do
     elseif (lsp == "lua_ls") then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
             settings = {
                 Lua = {
                     runtime = {
@@ -174,13 +185,11 @@ for _, lsp in ipairs(servers) do
                 "/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar"
             },
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     elseif (lsp == "tsserver") then
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}},
             init_options = {
                 host_info = "neovim",
@@ -192,7 +201,6 @@ for _, lsp in ipairs(servers) do
     else
         nvim_lsp[lsp].setup {
             on_attach = on_attach,
-            flags = {debounce_text_changes = DEBOUNCE_TIME},
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     end
