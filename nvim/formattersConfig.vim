@@ -48,7 +48,7 @@ autocmd BufRead,BufNewFile *.py nnoremap <buffer> <leader>ff :call FormatBlack(1
 autocmd BufRead,BufNewFile *.xml nnoremap <buffer> <leader>ff :call FormatXml() <CR>
 
 " Prettier formatters
-autocmd BufRead,BufNewFile *.vue,*.ts,*.json,*.html,*.js,*.scss,*.tsx nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
+autocmd BufRead,BufNewFile *.vue,*.ts,*.json,*.html,*.js,*.scss,*.tsx,*.mjs nnoremap <buffer> <leader>ff :call FormatPrettier() <CR>
 
 " Arduino formatters
 autocmd BufRead,BufNewFile *.ino nnoremap <buffer> <leader>ff :call FormatClang() <CR>
