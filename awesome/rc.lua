@@ -601,13 +601,13 @@ beautiful.useless_gap = 5
 
 beautiful.notification_icon_size = 100
 
-awful.spawn.with_shell("compton")
-awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("blueman-applet")
-awful.spawn.with_shell("set-natural-scroll")
-awful.spawn.with_shell("system-config-printer-applet")
-awful.spawn.with_shell("flameshot")
+awful.spawn.easy_async("compton")
+awful.spawn.easy_async("nitrogen --restore")
+awful.spawn.easy_async("nm-applet")
+awful.spawn.easy_async("blueman-applet")
+awful.spawn.easy_async("set-natural-scroll")
+awful.spawn.easy_async("system-config-printer-applet")
+awful.spawn.easy_async("flameshot")
 
 os.execute("setxkbmap latam")
 
