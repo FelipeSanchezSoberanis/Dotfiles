@@ -601,7 +601,7 @@ beautiful.useless_gap = 5
 
 beautiful.notification_icon_size = 100
 
-awful.spawn.easy_async("compton")
+awful.spawn.easy_async("picom")
 awful.spawn.easy_async("nitrogen --restore")
 awful.spawn.easy_async("nm-applet")
 awful.spawn.easy_async("blueman-applet")

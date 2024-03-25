@@ -1,25 +1,9 @@
 local NODE_MODULES = os.getenv("NODE_HOME") .. "/lib/node_modules"
-local NVIM_CMP_DEBOUNCE_TIME = 350;
 
 -- Setup nvim-cmp.
 local cmp = require("cmp")
 
-local timer = vim.loop.new_timer()
-local function cmp_complete_debounced()
-    timer:stop()
-    timer:start(NVIM_CMP_DEBOUNCE_TIME, 0, vim.schedule_wrap(
-                    function()
-            cmp.complete({reason = cmp.ContextReason.Auto})
-        end))
-end
-
-vim.api.nvim_create_autocmd({"TextChangedI", "TextChangedP"}, {
-    callback = function() cmp_complete_debounced() end,
-    pattern = "*"
-})
-
 cmp.setup({
-    completion = {autocomplete = false},
     window = {
         completion = {border = "single"},
         documentation = {border = "single"}
