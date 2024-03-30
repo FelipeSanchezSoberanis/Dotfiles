@@ -31,6 +31,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug '/home/felipe/Documents/copy-path/main'
 
 call plug#end()
 

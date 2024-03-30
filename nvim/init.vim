@@ -123,6 +123,7 @@ require('treeSitterContextConfig')
 require('nvimLspConfig')
 require('catppuccinConfig')
 require('indentBlanklineConfig')
+require('copyPathConfig')
 EOF
 
 " Set colors
