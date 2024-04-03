@@ -33,6 +33,7 @@ set splitright
 set ignorecase
 set smartcase
 set cursorline
+set nofoldenable
 
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
