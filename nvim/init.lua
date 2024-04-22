@@ -1,0 +1,5 @@
+require("vim-options")
+require("plugins")
+require("configs")
+require("mappings")
+require("auto-commands")
