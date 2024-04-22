@@ -25,3 +25,6 @@ for _, v in ipairs(command_per_patterns) do
         end
     })
 end
+
+vim.api.nvim_create_autocmd("BufWritePre",
+                            {pattern = "*", callback = function() vim.cmd([[%s/\s\+$//e]]) end})
