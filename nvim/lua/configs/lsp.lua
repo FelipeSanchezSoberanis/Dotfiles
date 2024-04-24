@@ -62,7 +62,7 @@ local servers = {
     "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver"
 }
 for _, lsp in ipairs(servers) do
-    if (lsp == "html" or lsp == "cssls" or lsp == "jsonls" or lsp == "eslint") then
+    if (lsp == "cssls" or lsp == "jsonls" or lsp == "eslint") then
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities.textDocument.completion.completionItem.snippetSupport = true
         nvim_lsp[lsp].setup {
@@ -76,6 +76,7 @@ for _, lsp in ipairs(servers) do
             NODE_MODULES
         }
         nvim_lsp[lsp].setup {
+            filetypes = {"typescript", "html", "typescriptreact", "typescript.tsx", "angular.html"},
             on_attach = on_attach,
             cmd = cmd,
             on_new_config = function(new_config) new_config.cmd = cmd end,
@@ -111,6 +112,24 @@ for _, lsp in ipairs(servers) do
                 host_info = "neovim",
                 tsserver = {path = NODE_MODULES .. "/typescript/lib/tsserver.js"}
             }
+        }
+    elseif (lsp == "html") then
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+        nvim_lsp[lsp].setup {
+            filetypes = {"html", "templ", "angular.html"},
+            on_attach = on_attach,
+            capabilities = capabilities,
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
+        }
+    elseif (lsp == "emmet_ls") then
+        nvim_lsp[lsp].setup {
+            filetypes = {
+                "astro", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug",
+                "sass", "scss", "svelte", "typescriptreact", "vue", "angular.html"
+            },
+            on_attach = on_attach,
+            workspace = {didChangeWatchedFiles = {dynamicRegistration = true}}
         }
     else
         nvim_lsp[lsp].setup {

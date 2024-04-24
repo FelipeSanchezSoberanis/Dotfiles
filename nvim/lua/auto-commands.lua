@@ -28,3 +28,8 @@ end
 
 vim.api.nvim_create_autocmd("BufWritePre",
                             {pattern = "*", callback = function() vim.cmd([[%s/\s\+$//e]]) end})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "angular.html",
+    callback = function() vim.treesitter.language.register("angular", "angular.html") end
+})

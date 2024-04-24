@@ -1,4 +1,5 @@
 require("vim-options")
+require("custom-filetypes")
 require("plugins")
 require("configs")
 require("mappings")
