@@ -30,10 +30,10 @@ vim.o.colorcolumn = 80
 vim.o.numberwidth = 1
 vim.o.mouse = "a"
 vim.o.cursorline = true
-vim.o.nrformats = vim.o.nrformats .. ",alpha"
-vim.o.diffopt = vim.o.diffopt .. ",vertical"
+vim.opt.nrformats:append("alpha")
+vim.opt.diffopt:append("vertical")
 vim.o.linebreak = true
-vim.o.iskeyword = vim.o.iskeyword .. ",-"
+vim.opt.iskeyword:remove("-")
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.ignorecase = true
