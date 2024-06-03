@@ -59,7 +59,7 @@ end
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
-    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver"
+    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver", "volar"
 }
 for _, lsp in ipairs(servers) do
     if (lsp == "cssls" or lsp == "jsonls" or lsp == "eslint") then
@@ -110,8 +110,16 @@ for _, lsp in ipairs(servers) do
             workspace = {didChangeWatchedFiles = {dynamicRegistration = true}},
             init_options = {
                 host_info = "neovim",
-                tsserver = {path = NODE_MODULES .. "/typescript/lib/tsserver.js"}
-            }
+                tsserver = {path = NODE_MODULES .. "/typescript/lib/tsserver.js"},
+                plugins = {
+                    {
+                        name = "@vue/typescript-plugin",
+                        location = NODE_MODULES .. "/@vue/typescript-plugin",
+                        languages = {"javascript", "typescript", "vue"}
+                    }
+                }
+            },
+            filetypes = {"javascript", "typescript", "vue"}
         }
     elseif (lsp == "html") then
         local capabilities = vim.lsp.protocol.make_client_capabilities()
