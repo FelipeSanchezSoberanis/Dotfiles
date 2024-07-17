@@ -119,7 +119,7 @@ for _, lsp in ipairs(servers) do
                     }
                 }
             },
-            filetypes = {"javascript", "typescript", "vue"}
+            filetypes = {"javascript", "typescript", "vue", "javascriptreact", "typescriptreact"}
         }
     elseif (lsp == "html") then
         local capabilities = vim.lsp.protocol.make_client_capabilities()
