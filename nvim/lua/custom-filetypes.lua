@@ -1,1 +1,1 @@
-vim.filetype.add({pattern = {[".*%.component%.html"] = "angular.html"}})
+vim.filetype.add({pattern = {[".*%.component%.html"] = "htmlangular"}})
