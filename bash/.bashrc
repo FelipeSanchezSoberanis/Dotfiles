@@ -133,6 +133,7 @@ export PATH="$HOME/go/bin:$PATH"
 
 export ANDROID_HOME="/home/felipe/Android/sdk"
 export NODE_HOME="$(dirname $(dirname $(which node)))"
+export JDTLS_JVM_ARGS="-javaagent:/home/felipe/Documents/executables/lombok/lombok.jar"
 
 if  command -v ng &> /dev/null
 then
