@@ -1,3 +1,5 @@
+local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
+
 local lspconfig = require("lspconfig")
 local cmp = require("cmp")
 local lspconfig_ui_windows = require("lspconfig.ui.windows")
@@ -16,7 +18,27 @@ local servers = {
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
     "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver", "volar"
 }
-for _, server in ipairs(servers) do lspconfig[server].setup({capabilities = capabilities}) end
+for _, server in ipairs(servers) do
+    local setup = {capabilities = capabilities}
+
+    if server == "tsserver" then
+        setup.init_options = {
+            plugins = {
+                {
+                    name = "@vue/typescript-plugin",
+                    location = node_modules .. "/@vue/typescript-plugin",
+                    languages = {"javascript", "typescript", "vue"}
+                }
+            }
+        }
+        setup.filetypes = {
+            "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
+            "typescript.tsx", "vue"
+        }
+    end
+
+    lspconfig[server].setup(setup)
+end
 
 cmp.setup({
     window = {completion = {border = "single"}, documentation = {border = "single"}},
