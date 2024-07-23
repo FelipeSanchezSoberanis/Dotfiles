@@ -16,7 +16,8 @@ end
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
-    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver", "volar"
+    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver", "volar",
+    "jdtls"
 }
 for _, server in ipairs(servers) do
     local setup = {capabilities = capabilities}
