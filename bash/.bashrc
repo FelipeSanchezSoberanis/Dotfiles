@@ -135,11 +135,6 @@ export ANDROID_HOME="/home/felipe/Android/sdk"
 export NODE_HOME="$(dirname $(dirname $(which node)))"
 export JDTLS_JVM_ARGS="-javaagent:/home/felipe/Documents/executables/lombok/lombok.jar"
 
-if  command -v ng &> /dev/null
-then
-    source <(ng completion script)
-fi
-
 neofetch
 
 eval "$(starship init bash)"
