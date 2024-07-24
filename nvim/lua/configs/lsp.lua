@@ -36,6 +36,11 @@ for _, server in ipairs(servers) do
             "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
             "typescript.tsx", "vue"
         }
+    elseif server == "groovyls" then
+        setup.cmd = {
+            "java", "-jar",
+            "/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar"
+        }
     end
 
     lspconfig[server].setup(setup)
