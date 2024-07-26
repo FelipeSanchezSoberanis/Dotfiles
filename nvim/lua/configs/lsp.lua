@@ -3,7 +3,7 @@ local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
 local lspconfig = require("lspconfig")
 local cmp = require("cmp")
 local lspconfig_ui_windows = require("lspconfig.ui.windows")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities({dynamicRegistration = true})
 
 lspconfig_ui_windows.default_options.border = "single"
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
