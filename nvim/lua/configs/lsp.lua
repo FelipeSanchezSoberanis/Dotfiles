@@ -36,6 +36,13 @@ for _, server in ipairs(servers) do
             "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
             "typescript.tsx", "vue"
         }
+    elseif server == "angularls" then
+        local cmd = {
+            "ngserver", "--stdio", "--tsProbeLocations", node_modules, "--ngProbeLocations",
+            node_modules
+        }
+        setup.cmd = cmd
+        setup.on_new_config = function(new_config, new_root_dir) new_config.cmd = cmd end
     elseif server == "groovyls" then
         setup.cmd = {
             "java", "-jar",
