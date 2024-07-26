@@ -3,7 +3,7 @@ local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
 local lspconfig = require("lspconfig")
 local cmp = require("cmp")
 local lspconfig_ui_windows = require("lspconfig.ui.windows")
-local capabilities = require("cmp_nvim_lsp").default_capabilities({dynamicRegistration = true})
+local getDefaultCapabilities = require("cmp_nvim_lsp").default_capabilities
 
 lspconfig_ui_windows.default_options.border = "single"
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
@@ -20,9 +20,10 @@ local servers = {
     "jdtls"
 }
 for _, server in ipairs(servers) do
-    local setup = {capabilities = capabilities}
+    local setup = {capabilities = getDefaultCapabilities()}
 
     if server == "tsserver" then
+        setup.capabilities = getDefaultCapabilities({dynamicRegistration = true})
         setup.init_options = {
             plugins = {
                 {
@@ -37,6 +38,7 @@ for _, server in ipairs(servers) do
             "typescript.tsx", "vue"
         }
     elseif server == "angularls" then
+        setup.capabilities = getDefaultCapabilities({dynamicRegistration = true})
         local cmd = {
             "ngserver", "--stdio", "--tsProbeLocations", node_modules, "--ngProbeLocations",
             node_modules
