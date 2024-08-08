@@ -539,6 +539,7 @@ awful.spawn.easy_async("blueman-applet")
 awful.spawn.easy_async("system-config-printer-applet")
 awful.spawn.easy_async("flameshot")
 awful.spawn.easy_async("xset-config")
+awful.spawn.easy_async("numlockx on")
 
 os.execute("setxkbmap latam")
 
