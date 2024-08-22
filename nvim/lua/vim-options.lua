@@ -33,7 +33,7 @@ vim.o.cursorline = true
 vim.opt.nrformats:append("alpha")
 vim.opt.diffopt:append("vertical")
 vim.o.linebreak = true
-vim.opt.iskeyword:remove("-")
+vim.opt.iskeyword:remove({"-", "_"})
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.ignorecase = true
