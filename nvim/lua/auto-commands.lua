@@ -4,8 +4,10 @@ local command_per_patterns = {
     {{"*.py"}, "black -l 100 %"}, --
     {{"*.xml"}, "xmllint --format % --output"}, --
     {
-        {"*.vue", "*.ts", "*.json", "*.html", "*.js", "*.scss", "*.tsx", "*.mjs", "*.jsx"},
-        "prettier -w %"
+        {
+            "*.vue", "*.ts", "*.json", "*.html", "*.js", "*.scss", "*.tsx", "*.mjs", "*.jsx",
+            "*.css", "*.yaml", "*.yml", "*.md", "*.mdx"
+        }, "prettier -w %"
     }, --
     {{"*.ino", "*.c"}, "clang-format --style=Google -i %"}, --
     {{"*.rs"}, "rustfmt %"} --
