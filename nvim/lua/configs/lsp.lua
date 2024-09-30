@@ -37,6 +37,8 @@ for _, server in ipairs(servers) do
             "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
             "typescript.tsx", "vue"
         }
+    elseif server == "volar" then
+        setup.init_options = {typescript = {tsdk = node_modules .. "/typescript/lib"}}
     elseif server == "angularls" then
         setup.capabilities = getDefaultCapabilities({dynamicRegistration = true})
         local cmd = {
