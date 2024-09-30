@@ -16,13 +16,13 @@ end
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
-    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsserver", "volar",
+    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "volar",
     "jdtls"
 }
 for _, server in ipairs(servers) do
     local setup = {capabilities = getDefaultCapabilities()}
 
-    if server == "tsserver" then
+    if server == "ts_ls" then
         setup.capabilities = getDefaultCapabilities({dynamicRegistration = true})
         setup.init_options = {
             plugins = {
@@ -46,7 +46,7 @@ for _, server in ipairs(servers) do
             node_modules
         }
         setup.cmd = cmd
-        setup.on_new_config = function(new_config, new_root_dir) new_config.cmd = cmd end
+        setup.on_new_config = function(new_config) new_config.cmd = cmd end
     elseif server == "groovyls" then
         setup.cmd = {
             "java", "-jar",
