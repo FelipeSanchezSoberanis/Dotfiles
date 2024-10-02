@@ -39,5 +39,6 @@ require("lazy").setup({
     "editorconfig/editorconfig-vim", --
     "ryanoasis/vim-devicons", --
     "lukas-reineke/indent-blankline.nvim", --
-    {dir = "/home/felipe/Documents/copy-path/main"} --
+    {dir = "/home/felipe/Documents/copy-path/main"}, --
+    "b0o/schemastore.nvim" --
 })
