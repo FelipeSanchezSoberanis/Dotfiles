@@ -37,6 +37,11 @@ for _, server in ipairs(servers) do
             "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
             "typescript.tsx", "vue"
         }
+    elseif server == "emmet_ls" then
+        setup.filetypes = {
+            "astro", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass",
+            "svelte", "typescriptreact", "vue", "htmlangular"
+        }
     elseif server == "jsonls" then
         setup.settings = {
             json = {schemas = require("schemastore").json.schemas(), validate = {enable = true}}
