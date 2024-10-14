@@ -127,12 +127,10 @@ alias du="dust"
 alias cat="batcat"
 
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
-export PATH="$(dirname $(readlink -f $(which node))):$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 export ANDROID_HOME="/home/felipe/Android/sdk"
-export NODE_HOME="$(dirname $(dirname $(which node)))"
 export JDTLS_JVM_ARGS="-javaagent:/home/felipe/Documents/executables/lombok/lombok.jar"
 export SUDO_EDITOR="nvim"
 
@@ -142,3 +140,8 @@ eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NODE_HOME="$NVM_DIR/versions/node/$(node --version)"
