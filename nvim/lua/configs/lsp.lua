@@ -62,7 +62,11 @@ for _, server in ipairs(servers) do
 end
 
 cmp.setup({
-    window = {completion = {border = "single"}, documentation = {border = "single"}},
+    snippet = {expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end},
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered()
+    },
     sources = {{name = "nvim_lsp"}, {name = "ultisnips"}, {name = "buffer"}},
     mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping(function() cmp.select_next_item() end, {"i", "s"}),
