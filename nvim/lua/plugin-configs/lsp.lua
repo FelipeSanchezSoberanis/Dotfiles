@@ -48,7 +48,8 @@ cmp.setup.cmdline(":", {
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
-    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "volar"
+    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "volar",
+    "tailwindcss"
 }
 for _, server in ipairs(servers) do
     local setup = {capabilities = capabilities}
