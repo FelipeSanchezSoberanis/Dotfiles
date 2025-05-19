@@ -252,6 +252,8 @@ root.buttons(gears.table.join(awful.button({}, 3, function() mymainmenu:toggle()
 
 -- {{{ Key bindings
 globalkeys = gears.table.join( --
+awful.key({modkey}, "c", function() naughty.destroy_all_notifications() end,
+          {description = "Close all notifications", group = "screen"}),
 awful.key({modkey}, "z", function() awful.spawn("zathura-open") end,
           {description = "Open pdf in zathura", group = "productivity"}),
 awful.key({modkey}, "d", function() awful.spawn("xrandr-set") end,
