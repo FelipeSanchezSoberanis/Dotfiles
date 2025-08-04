@@ -41,7 +41,8 @@ require("lazy").setup({
         {"tpope/vim-surround"}, --
         {"tpope/vim-fugitive"}, --
         {"mfussenegger/nvim-jdtls"}, --
-        {"preservim/nerdcommenter"} --
+        {"preservim/nerdcommenter"}, --
+        {"mangelozzi/nvim-rgflow.lua"} --
     },
     checker = {enabled = true}
 })
