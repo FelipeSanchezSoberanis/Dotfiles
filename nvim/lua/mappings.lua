@@ -1,7 +1,8 @@
 local gitsigns = require("gitsigns")
 
 vim.keymap.set("n", " ", function() end)
-vim.keymap.set("n", "<c-p>", ":Files<CR>")
+vim.keymap.set("n", "<c-p>", ":GFiles --cached --others --exclude-standard<CR>")
+vim.keymap.set("n", "<leader>a<c-p>", ":Files<CR>")
 vim.keymap.set("n", "<c-b>", ":Buffers<CR>")
 vim.keymap.set("n", "<c-f>", ":Ag<CR>")
 vim.keymap.set("n", "<leader>nt", ":NERDTreeToggle<CR>:NERDTreeRefreshRoot<CR>")
