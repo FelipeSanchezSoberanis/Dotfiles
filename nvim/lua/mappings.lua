@@ -1,31 +1,12 @@
 local gitsigns = require("gitsigns")
 local rgflow = require("rgflow")
 
-local function open_rgflow_with_optional_visual_selection()
-    local mode = vim.api.nvim_get_mode().mode
-    local selected_text = nil
-
-    if mode == "v" then
-        local cursor_position = vim.fn.getpos(".")
-        local visual_position = vim.fn.getpos("v")
-
-        local start_row = math.min(cursor_position[2], visual_position[2])
-        local end_row = math.max(cursor_position[2], visual_position[2])
-        local start_col = math.min(cursor_position[3], visual_position[3])
-        local end_col = math.max(cursor_position[3], visual_position[3])
-
-        selected_text = vim.api.nvim_buf_get_text(vim.api.nvim_get_current_buf(), start_row - 1,
-                                                  start_col - 1, end_row - 1, end_col, {})[1]
-    end
-
-    rgflow.open(selected_text, nil, nil)
-end
-
 vim.keymap.set("n", " ", function() end)
 vim.keymap.set("n", "<c-p>", ":GFiles --cached --others --exclude-standard<CR>")
 vim.keymap.set("n", "<leader>a<c-p>", ":Files<CR>")
 vim.keymap.set("n", "<c-b>", ":Buffers<CR>")
-vim.keymap.set({"n", "v"}, "<c-f>", open_rgflow_with_optional_visual_selection)
+vim.keymap.set("n", "<c-f>", rgflow.open)
+vim.keymap.set("v", "<c-f>", rgflow.open_visual)
 vim.keymap.set("n", "<leader>nt", ":NERDTreeToggle<CR>:NERDTreeRefreshRoot<CR>")
 vim.keymap.set("n", "<leader>nf", ":NERDTreeFind<CR>:NERDTreeRefreshRoot<CR>")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
