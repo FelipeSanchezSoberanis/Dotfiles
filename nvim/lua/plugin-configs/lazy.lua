@@ -42,7 +42,7 @@ require("lazy").setup({
         {"tpope/vim-fugitive"}, --
         {"mfussenegger/nvim-jdtls"}, --
         {"preservim/nerdcommenter"}, --
-        {dir = "/home/felipe/Documents/rgflow.nvim/master", name = "rgflow.nvim"} --
+        {"mangelozzi/rgflow.nvim"} --
     },
     checker = {enabled = true}
 })

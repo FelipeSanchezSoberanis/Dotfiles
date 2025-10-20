@@ -10,7 +10,8 @@ local command_per_patterns = {
         }, "prettier -w %"
     }, --
     {{"*.ino", "*.c"}, "clang-format --style=Google -i %"}, --
-    {{"*.rs"}, "rustfmt %"} --
+    {{"*.rs"}, "rustfmt %"}, --
+    {{"*.sql"}, "pg_format % -o %"} --
 }
 
 for _, v in ipairs(command_per_patterns) do
