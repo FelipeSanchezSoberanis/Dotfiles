@@ -2,7 +2,7 @@ local command_per_patterns = {
     {{"*.lua"}, "lua-format --single-quote-to-double-quote --column-limit 100 -i %"}, --
     {{"*.java"}, "google-java-format -i %"}, --
     {{"*.py"}, "black -l 100 %"}, --
-    {{"*.xml"}, "xmllint --format % --output"}, --
+    {{"*.xml"}, "xmllint --format % --output %"}, --
     {
         {
             "*.vue", "*.ts", "*.json", "*.html", "*.js", "*.scss", "*.tsx", "*.mjs", "*.jsx",
