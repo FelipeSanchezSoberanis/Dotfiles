@@ -1,6 +1,5 @@
 local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
 
-local lspconfig = require("lspconfig")
 local cmp = require("cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -48,8 +47,7 @@ cmp.setup.cmdline(":", {
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
-    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "volar",
-    "tailwindcss"
+    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "tailwindcss"
 }
 for _, server in ipairs(servers) do
     local setup = {capabilities = capabilities}
@@ -93,7 +91,7 @@ for _, server in ipairs(servers) do
         }
     end
 
-    lspconfig[server].setup(setup)
+    vim.lsp.enable(server, setup)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
