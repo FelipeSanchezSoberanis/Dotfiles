@@ -222,6 +222,8 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10-
 
+bindsym XF86RFKill exec --no-startup-id flameshot gui
+
 gaps inner 10px
 
 default_border pixel 4
@@ -231,6 +233,8 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom
 
 exec --no-startup-id polybar
+
+exec --no-startup-id flameshot
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
