@@ -1,0 +1,5 @@
+require("vim-options")
+require("plugin-configs")
+require("mappings")
+require("auto-commands")
+require("custom-filetypes")
