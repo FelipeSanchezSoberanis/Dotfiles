@@ -222,7 +222,7 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10+
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10-
 
-bindsym XF86RFKill exec --no-startup-id flameshot gui
+bindsym Print exec --no-startup-id flameshot gui
 
 gaps inner 10px
 
