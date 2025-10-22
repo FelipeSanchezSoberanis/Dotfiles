@@ -224,6 +224,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10-
 
 bindsym Print exec --no-startup-id flameshot gui
 
+bindsym $mod+q exec --no-startup-id rotate-keyboard-layout
+
 gaps inner 10px
 
 default_border pixel 4
