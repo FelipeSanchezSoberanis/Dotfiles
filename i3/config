@@ -91,7 +91,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -225,6 +225,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10-
 bindsym Print exec --no-startup-id flameshot gui
 
 bindsym $mod+q exec --no-startup-id rotate-keyboard-layout
+
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+p exec --no-startup-id rofi -show-icons -show drun
 
 gaps inner 10px
 
