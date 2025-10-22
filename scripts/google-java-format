@@ -1,0 +1,3 @@
+#! /usr/bin/bash
+
+java -jar /home/felipe/Documents/google-java-format/google-java-format-1.30.0-all-deps.jar $*
