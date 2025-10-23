@@ -140,7 +140,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+q focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -224,7 +224,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10-
 
 bindsym Print exec --no-startup-id flameshot gui
 
-bindsym $mod+q exec --no-startup-id rotate-keyboard-layout
+bindsym $mod+space exec --no-startup-id rotate-keyboard-layout
 
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+p exec --no-startup-id rofi -show-icons -show drun
