@@ -117,12 +117,14 @@ if ! shopt -oq posix; then
 fi
 
 eval "$(starship init bash)"
+eval "$(register-python-argcomplete pipx)"
 
 . "$HOME/.cargo/env"
 
 alias ls="eza --icons"
 alias cat="batcat"
 alias du="dust"
+alias pip="python -m pip"
 
 neofetch
 
@@ -130,3 +132,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export NODE_HOME="$NVM_DIR/versions/node/$(node --version)"
+
+# Created by `pipx` on 2025-10-23 17:48:35
+export PATH="$PATH:/home/felipe/.local/bin"
