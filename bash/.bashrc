@@ -122,6 +122,7 @@ eval "$(starship init bash)"
 
 alias ls="eza --icons"
 alias cat="batcat"
+alias du="dust"
 
 neofetch
 
