@@ -3,7 +3,6 @@ vim.g.airline_theme = "catppuccin"
 vim.g.NERDSpaceDelims = 1
 vim.g.NERDDefaultAlign = "left"
 vim.g.python3_host_prog = "python"
-vim.g["airline#extensions#tabline#enabled"] = 1
 vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
