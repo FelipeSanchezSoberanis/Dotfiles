@@ -39,3 +39,4 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = true
 vim.o.foldenable = false
+vim.o.winborder = "rounded"
