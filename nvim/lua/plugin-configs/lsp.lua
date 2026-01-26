@@ -3,15 +3,8 @@ local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
 local cmp = require("cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = "rounded"
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
 cmp.setup({
-    snippet = {expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end},
+    snippet = {expand = function(args) vim.snippet.expand(args.body) end},
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered()
@@ -26,13 +19,7 @@ cmp.setup({
         ["<C-d>"] = cmp.mapping.scroll_docs(4)
 
     }),
-    sources = cmp.config.sources({
-        {name = "nvim_lsp"} --
-        -- {name = "ultisnips"} --
-    }, {
-        {name = "buffer"} --
-
-    })
+    sources = cmp.config.sources({{name = "nvim_lsp"}}, {{name = "buffer"}})
 })
 
 cmp.setup.cmdline({"/", "?"},
@@ -89,16 +76,34 @@ for _, server in ipairs(servers) do
             "java", "-jar",
             "/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar"
         }
+    elseif server == "lua_ls" then
+        setup.on_init = function(client)
+            print("on_init")
+            if client.workspace_folders then
+                local path = client.workspace_folders[1].name
+                if path ~= vim.fn.stdpath("config") and
+                    (vim.uv.fs_stat(path .. "/.luarc.json") or
+                        vim.uv.fs_stat(path .. "/.luarc.jsonc")) then return end
+            end
+            client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+                runtime = {version = "LuaJIT", path = {"lua/?.lua", "lua/?/init.lua"}},
+                workspace = {checkThirdParty = false, library = {vim.env.VIMRUNTIME}}
+            })
+        end
+        setup.settings = {Lua = {}}
     end
 
-    vim.lsp.enable(server, setup)
+    vim.lsp.config[server] = setup
 end
+vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function()
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer = true})
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {buffer = true})
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {buffer = true})
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({count = 1, float = true}) end,
+                       {buffer = true})
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({count = -1, float = true}) end,
+                       {buffer = true})
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {buffer = true})
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {buffer = true})
         vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {buffer = true})
