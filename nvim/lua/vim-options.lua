@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.airline_theme = "catppuccin"
 vim.g.NERDSpaceDelims = 1
 vim.g.NERDDefaultAlign = "left"
-vim.g.python3_host_prog = "python"
+vim.g.python3_host_prog = "/usr/local/bin/python"
 vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
