@@ -36,65 +36,65 @@ local servers = {
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
     "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "tailwindcss"
 }
-for _, server in ipairs(servers) do
-    local setup = {capabilities = capabilities}
 
-    if server == "ts_ls" then
-        setup.init_options = {
-            plugins = {
-                {
-                    name = "@vue/typescript-plugin",
-                    location = node_modules .. "/@vue/typescript-plugin",
-                    languages = {"javascript", "typescript", "vue"}
-                }
+vim.lsp.config("ts_ls", {
+    init_options = {
+        plugins = {
+            {
+                name = "@vue/typescript-plugin",
+                location = node_modules .. "/@vue/typescript-plugin",
+                languages = {"javascript", "typescript", "vue"}
             }
         }
-        setup.filetypes = {
-            "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
-            "typescript.tsx", "vue"
-        }
-    elseif server == "emmet_ls" then
-        setup.filetypes = {
-            "astro", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass",
-            "svelte", "typescriptreact", "vue", "htmlangular"
-        }
-    elseif server == "jsonls" then
-        setup.settings = {
-            json = {schemas = require("schemastore").json.schemas(), validate = {enable = true}}
-        }
-    elseif server == "volar" then
-        setup.init_options = {typescript = {tsdk = node_modules .. "/typescript/lib"}}
-    elseif server == "angularls" then
-        local cmd = {
-            "ngserver", "--stdio", "--tsProbeLocations", node_modules, "--ngProbeLocations",
-            node_modules
-        }
-        setup.cmd = cmd
-        setup.on_new_config = function(new_config) new_config.cmd = cmd end
-    elseif server == "groovyls" then
-        setup.cmd = {
-            "java", "-jar",
-            "/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar"
-        }
-    elseif server == "lua_ls" then
-        setup.on_init = function(client)
-            print("on_init")
-            if client.workspace_folders then
-                local path = client.workspace_folders[1].name
-                if path ~= vim.fn.stdpath("config") and
-                    (vim.uv.fs_stat(path .. "/.luarc.json") or
-                        vim.uv.fs_stat(path .. "/.luarc.jsonc")) then return end
+    },
+    filetypes = {
+        "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
+        "typescript.tsx", "vue"
+    }
+})
+vim.lsp.config("emmet_ls", {
+    filetypes = {
+        "astro", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass",
+        "svelte", "typescriptreact", "vue", "htmlangular"
+    }
+})
+vim.lsp.config("jsonls", {
+    settings = {
+        json = {schemas = require("schemastore").json.schemas(), validate = {enable = true}}
+    }
+})
+vim.lsp.config("volar", {init_options = {typescript = {tsdk = node_modules .. "/typescript/lib"}}})
+local angularls_cmd = {
+    "ngserver", "--stdio", "--tsProbeLocations", node_modules, "--ngProbeLocations", node_modules
+}
+vim.lsp.config("angularls", {
+    cmd = angularls_cmd,
+    on_new_config = function(new_config) new_config.cmd = angularls_cmd end
+})
+vim.lsp.config("groovyls", {
+    cmd = {
+        "java", "-jar",
+        "/home/felipe/Documents/groovy-language-server/build/libs/groovy-language-server-all.jar"
+    }
+})
+vim.lsp.config("lua_ls", {
+    on_init = function(client)
+        print("on_init")
+        if client.workspace_folders then
+            local path = client.workspace_folders[1].name
+            if path ~= vim.fn.stdpath("config") and
+                (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc")) then
+                return
             end
-            client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-                runtime = {version = "LuaJIT", path = {"lua/?.lua", "lua/?/init.lua"}},
-                workspace = {checkThirdParty = false, library = {vim.env.VIMRUNTIME}}
-            })
         end
-        setup.settings = {Lua = {}}
-    end
+        client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+            runtime = {version = "LuaJIT", path = {"lua/?.lua", "lua/?/init.lua"}},
+            workspace = {checkThirdParty = false, library = {vim.env.VIMRUNTIME}}
+        })
+    end,
+    settings = {Lua = {}}
+})
 
-    vim.lsp.config[server] = setup
-end
 vim.lsp.enable(servers)
 
 vim.api.nvim_create_autocmd("LspAttach", {
