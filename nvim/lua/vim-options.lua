@@ -40,3 +40,5 @@ vim.o.smartcase = true
 vim.o.cursorline = true
 vim.o.foldenable = false
 vim.o.winborder = "rounded"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldmethod = "expr"
