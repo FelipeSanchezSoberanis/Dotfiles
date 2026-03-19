@@ -1,7 +1,6 @@
 local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
 
 local cmp = require("cmp")
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 cmp.setup({
     snippet = {expand = function(args) vim.snippet.expand(args.body) end},
