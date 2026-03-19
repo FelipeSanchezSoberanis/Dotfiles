@@ -79,7 +79,6 @@ vim.lsp.config("groovyls", {
 })
 vim.lsp.config("lua_ls", {
     on_init = function(client)
-        print("on_init")
         if client.workspace_folders then
             local path = client.workspace_folders[1].name
             if path ~= vim.fn.stdpath("config") and
