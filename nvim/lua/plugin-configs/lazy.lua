@@ -30,14 +30,13 @@ require("lazy").setup({
         {"b0o/schemastore.nvim"}, --
         {"nvim-treesitter/nvim-treesitter"}, --
         {"nvim-treesitter/nvim-treesitter-context"}, --
-        {"windwp/nvim-autopairs", event = "InsertEnter", config = true}, --
+        {"windwp/nvim-autopairs", config = true}, --
         {"junegunn/fzf"}, -- ,
         {"junegunn/fzf.vim"}, -- ,
         {"preservim/nerdtree"}, -- ,
         {"ryanoasis/vim-devicons"}, -- ,
         {"lewis6991/gitsigns.nvim"}, -- ,
         {"catppuccin/nvim", name = "catppuccin", priority = 1000}, --
-        {"vim-airline/vim-airline"}, --
         {"tpope/vim-surround"}, --
         {"tpope/vim-fugitive"}, --
         {"mfussenegger/nvim-jdtls"}, --
