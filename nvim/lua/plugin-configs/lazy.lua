@@ -41,7 +41,9 @@ require("lazy").setup({
         {"tpope/vim-fugitive"}, --
         {"mfussenegger/nvim-jdtls"}, --
         {"preservim/nerdcommenter"}, --
-        {"mangelozzi/rgflow.nvim"} --
+        {"mangelozzi/rgflow.nvim"}, --
+        {"nvim-tree/nvim-web-devicons"}, --
+        {"nvim-lualine/lualine.nvim"} --
     },
     checker = {enabled = true}
 })
