@@ -40,7 +40,8 @@ require("lazy").setup({
         {"preservim/nerdcommenter"}, --
         {"mangelozzi/rgflow.nvim"}, --
         {"nvim-tree/nvim-web-devicons"}, --
-        {"nvim-lualine/lualine.nvim"} --
+        {"nvim-lualine/lualine.nvim"}, --
+        {"stevearc/aerial.nvim"} --
     },
     checker = {enabled = true}
 })
