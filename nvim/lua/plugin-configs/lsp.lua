@@ -1,4 +1,5 @@
-local node_modules = os.getenv("NODE_HOME") .. "/lib/node_modules"
+local node_home = os.getenv("NODE_HOME")
+local node_modules = node_home .. "/lib/node_modules"
 
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
