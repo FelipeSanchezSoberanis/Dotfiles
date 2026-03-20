@@ -9,7 +9,7 @@ vim.keymap.set("n", "<c-p>", ":GFilesCwd --cached --others --exclude-standard<CR
 vim.keymap.set("n", "<leader>a<c-p>", ":Files<CR>")
 vim.keymap.set("n", "<c-b>", ":Buffers<CR>")
 vim.keymap.set("n", "<c-f>", rgflow.open)
-vim.keymap.set("v", "<c-f>", rgflow.open_visual)
+vim.keymap.set("x", "<c-f>", rgflow.open_visual)
 vim.keymap.set("n", "<leader>nt", ":NERDTreeToggle<CR>:NERDTreeRefreshRoot<CR>")
 vim.keymap.set("n", "<leader>nf", ":NERDTreeFind<CR>:NERDTreeRefreshRoot<CR>")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
@@ -19,7 +19,7 @@ vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("n", "}", "}zz")
 vim.keymap.set("n", "{", "{zz")
 vim.keymap.set("n", "<leader>ww", function() vim.cmd([[set wrap!]]) end)
-vim.keymap.set("v", "<leader>ss", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
+vim.keymap.set("x", "<leader>ss", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]])
 vim.keymap.set("n", "]c", function()
     if vim.wo.diff then
         vim.cmd.normal({"]c", bang = true})
@@ -36,9 +36,9 @@ vim.keymap.set("n", "[c", function()
 end)
 vim.keymap.set("n", "<leader>hs", gitsigns.stage_hunk)
 vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk)
-vim.keymap.set("v", "<leader>hs",
+vim.keymap.set("x", "<leader>hs",
                function() gitsigns.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end)
-vim.keymap.set("v", "<leader>hr",
+vim.keymap.set("x", "<leader>hr",
                function() gitsigns.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end)
 vim.keymap.set("n", "<leader>hS", gitsigns.stage_buffer)
 vim.keymap.set("n", "<leader>hu", gitsigns.undo_stage_hunk)
