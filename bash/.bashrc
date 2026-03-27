@@ -1,3 +1,4 @@
+# /home/felipe/.bashrc
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -135,3 +136,7 @@ export NODE_HOME="$NVM_DIR/versions/node/$(node --version)"
 
 # Created by `pipx` on 2025-10-23 17:48:35
 export PATH="$PATH:/home/felipe/.local/bin"
+
+source "/home/felipe/Documents/eza/completions/bash/eza"
+complete -F _eza ls
+complete -F _eza ll
