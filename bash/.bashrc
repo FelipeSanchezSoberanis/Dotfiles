@@ -119,6 +119,7 @@ fi
 
 eval "$(starship init bash)"
 eval "$(register-python-argcomplete pipx)"
+eval "$(rg --generate complete-bash)"
 
 . "$HOME/.cargo/env"
 
