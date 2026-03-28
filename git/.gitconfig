@@ -1,7 +1,10 @@
+; /home/felipe/.gitconfig
+
 [init]
     defaultBranch = main
 [user]
     name = Felipe Sánchez Soberanis
+    email = felipesaso2000@gmail.com
 [log]
     decorate = auto
 [core]
