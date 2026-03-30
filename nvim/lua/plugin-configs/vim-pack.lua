@@ -10,7 +10,7 @@ vim.pack.add({
     github("b0o/schemastore.nvim"), --
     github("nvim-treesitter/nvim-treesitter"), --
     github("nvim-treesitter/nvim-treesitter-context"), --
-    {src = github("windwp/nvim-autopairs"), data = {config = true}}, --
+    github("windwp/nvim-autopairs"), --
     github("junegunn/fzf"), -- ,
     github("junegunn/fzf.vim"), -- ,
     github("preservim/nerdtree"), -- ,
