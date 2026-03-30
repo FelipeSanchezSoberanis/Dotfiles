@@ -108,3 +108,34 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer = true})
     end
 })
+
+local function is_string_empty(s) return s == nil or s == "" end
+
+local lspProgress = {kind = "progress", status = "running", source = "lsp"}
+vim.lsp.handlers["$/progress"] = function(_, result, context, _)
+    lspProgress.title = vim.lsp.get_client_by_id(context.client_id).name
+
+    local function trim_string(s)
+        return s:sub(0, vim.v.echospace - (lspProgress.title:len() + 2))
+    end
+
+    if result.value.kind == "end" then
+        lspProgress.status = "success"
+    else
+        lspProgress.status = "running"
+    end
+
+    if not is_string_empty(result.value.title) then
+        lspProgress.id = vim.api.nvim_echo({{trim_string(result.value.title)}}, true, lspProgress)
+    elseif not is_string_empty(result.value.message) then
+        lspProgress.id = vim.api.nvim_echo({{trim_string(result.value.message)}}, true, lspProgress)
+    elseif result.value.kind == "begin" then
+        lspProgress.id = vim.api.nvim_echo({{"Starting"}}, true, lspProgress)
+    elseif result.value.kind == "end" then
+        lspProgress.id = vim.api.nvim_echo({{"Ready"}}, true, lspProgress)
+    else
+        vim.print(result)
+        vim.print(context)
+    end
+end
+
