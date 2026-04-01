@@ -83,9 +83,10 @@ vim.lsp.config("jdtls", {
         "--add-opens", "java.base/java.util=ALL-UNNAMED", "--add-opens",
         "java.base/java.lang=ALL-UNNAMED", "-javaagent:/home/felipe/Documents/lombok/lombok.jar",
         "-jar",
-        "/home/felipe/Documents/jdt-language-server-1.51.0/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar",
-        "-configuration", "/home/felipe/Documents/jdt-language-server-1.51.0/config_linux", "-data",
-        "/home/felipe/.jdtls-data/" .. vim.fn.getcwd():gsub("%/", "__")
+        "/home/felipe/Documents/jdt-language-server/jdt-language-server-1.57.0-202602261110/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar",
+        "-configuration",
+        "/home/felipe/Documents/jdt-language-server/jdt-language-server-1.57.0-202602261110/config_linux",
+        "-data", "/home/felipe/.jdtls-data/" .. vim.fn.getcwd():gsub("%/", "__")
     },
     root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
     settings = {java = {signatureHelp = {enabled = true}}}
