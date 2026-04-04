@@ -89,7 +89,17 @@ vim.lsp.config("jdtls", {
         "-data", "/home/felipe/.jdtls-data/" .. vim.fn.getcwd():gsub("%/", "__")
     },
     root_dir = vim.fs.root(0, {".git", "mvnw", "gradlew"}),
-    settings = {java = {signatureHelp = {enabled = true}}}
+    settings = {
+        java = {
+            signatureHelp = {enabled = true},
+            configuration = {
+                runtimes = {
+                    {name = "JavaSE-21", path = "/usr/lib/jvm/java-21-openjdk-amd64/"},
+                    {name = "JavaSE-25", path = "/usr/lib/jvm/java-25-openjdk-amd64/"}
+                }
+            }
+        }
+    }
 })
 
 vim.lsp.enable(servers)
