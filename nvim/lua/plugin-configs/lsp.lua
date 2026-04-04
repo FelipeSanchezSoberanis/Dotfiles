@@ -8,10 +8,6 @@ local servers = {
     "jdtls"
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
-vim.lsp.config("*", {capabilities = capabilities})
-
 vim.lsp.config("ts_ls", {
     init_options = {
         plugins = {
