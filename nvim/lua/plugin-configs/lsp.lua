@@ -116,33 +116,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 })
 
-local function is_string_empty(s) return s == nil or s == "" end
+vim.api.nvim_create_autocmd("LspProgress", {
+    callback = function(event)
+        local data = event.data
+        local value = event.data.params.value
+        local status = value.kind == "end" and "success" or "running"
+        local title = vim.lsp.get_client_by_id(data.client_id).name
 
-local lspProgress = {kind = "progress", status = "running", source = "lsp"}
-vim.lsp.handlers["$/progress"] = function(_, result, context, _)
-    lspProgress.title = vim.lsp.get_client_by_id(context.client_id).name
+        local function trim_string(s)
+            local max_len = vim.v.echospace - (title:len() + (": "):len() + ("..."):len())
+            if s:len() > max_len then return s:sub(0, max_len) .. "..." end
+            return s
+        end
 
-    local function trim_string(s)
-        return s:sub(0, vim.v.echospace - (lspProgress.title:len() + 2))
+        local message = trim_string(value.kind == "end" and "Done" or value.message or value.title)
+
+        vim.api.nvim_echo({{message}}, true, {
+            id = "lsp." .. data.client_id,
+            kind = "progress",
+            source = "vim.lsp",
+            title = title,
+            status = status
+        })
     end
-
-    if result.value.kind == "end" then
-        lspProgress.status = "success"
-    else
-        lspProgress.status = "running"
-    end
-
-    if not is_string_empty(result.value.title) then
-        lspProgress.id = vim.api.nvim_echo({{trim_string(result.value.title)}}, true, lspProgress)
-    elseif not is_string_empty(result.value.message) then
-        lspProgress.id = vim.api.nvim_echo({{trim_string(result.value.message)}}, true, lspProgress)
-    elseif result.value.kind == "begin" then
-        lspProgress.id = vim.api.nvim_echo({{"Starting"}}, true, lspProgress)
-    elseif result.value.kind == "end" then
-        lspProgress.id = vim.api.nvim_echo({{"Ready"}}, true, lspProgress)
-    else
-        vim.print(result)
-        vim.print(context)
-    end
-end
+})
 
