@@ -48,12 +48,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -118,8 +118,6 @@ if ! shopt -oq posix; then
 fi
 
 eval "$(starship init bash)"
-eval "$(register-python-argcomplete pipx)"
-eval "$(rg --generate complete-bash)"
 
 . "$HOME/.cargo/env"
 
@@ -138,6 +136,13 @@ export NODE_HOME="$NVM_DIR/versions/node/$(node --version)"
 # Created by `pipx` on 2025-10-23 17:48:35
 export PATH="$PATH:/home/felipe/.local/bin"
 
-source "/home/felipe/Documents/eza/completions/bash/eza"
+if [ -d "/home/felipe/.local/share/bash-completion/completions" ]; then
+  for file in "/home/felipe/.local/share/bash-completion/completions/"*; do
+    if [ -f "$file" ]; then
+      source "$file"
+    fi
+  done
+fi
+
 complete -F _eza ls
 complete -F _eza ll
