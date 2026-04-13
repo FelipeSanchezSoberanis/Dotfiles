@@ -24,5 +24,6 @@ vim.pack.add({
     github("mangelozzi/rgflow.nvim"), --
     github("nvim-tree/nvim-web-devicons"), --
     github("nvim-lualine/lualine.nvim"), --
-    github("stevearc/aerial.nvim") --
+    github("stevearc/aerial.nvim"), --
+    github("lukas-reineke/indent-blankline.nvim") --
 })
