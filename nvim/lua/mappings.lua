@@ -1,13 +1,10 @@
 local gitsigns = require("gitsigns")
 local rgflow = require("rgflow")
 
-vim.cmd(
-    [[ command! -bang -nargs=? GFilesCwd call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(<q-args> == "?" ? { "placeholder": "", "dir": getcwd() } : { "dir": getcwd() }), <bang>0) ]])
-
 vim.keymap.set("n", " ", function() end)
-vim.keymap.set("n", "<c-p>", ":GFilesCwd --cached --others --exclude-standard<CR>")
+vim.keymap.set("n", "<c-p>", function() require("fzf-lua").files({hidden = true}) end)
 vim.keymap.set("n", "<leader>a<c-p>", ":Files<CR>")
-vim.keymap.set("n", "<c-b>", ":Buffers<CR>")
+vim.keymap.set("n", "<c-b>", function() require("fzf-lua").buffers() end)
 vim.keymap.set("n", "<c-f>", rgflow.open)
 vim.keymap.set("x", "<c-f>", rgflow.open_visual)
 vim.keymap.set("n", "<leader>nt", ":NERDTreeToggle<CR>:NERDTreeRefreshRoot<CR>")

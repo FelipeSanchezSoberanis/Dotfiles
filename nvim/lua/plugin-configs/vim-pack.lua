@@ -11,8 +11,6 @@ vim.pack.add({
     github("nvim-treesitter/nvim-treesitter"), --
     github("nvim-treesitter/nvim-treesitter-context"), --
     github("windwp/nvim-autopairs"), --
-    github("junegunn/fzf"), -- ,
-    github("junegunn/fzf.vim"), -- ,
     github("preservim/nerdtree"), -- ,
     github("ryanoasis/vim-devicons"), -- ,
     github("lewis6991/gitsigns.nvim"), -- ,
@@ -25,5 +23,6 @@ vim.pack.add({
     github("nvim-tree/nvim-web-devicons"), --
     github("nvim-lualine/lualine.nvim"), --
     github("stevearc/aerial.nvim"), --
-    github("lukas-reineke/indent-blankline.nvim") --
+    github("lukas-reineke/indent-blankline.nvim"), --
+    github("ibhagwan/fzf-lua") --
 })
