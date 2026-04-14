@@ -19,7 +19,6 @@ vim.pack.add({
     github("tpope/vim-fugitive"), --
     github("mfussenegger/nvim-jdtls"), --
     github("preservim/nerdcommenter"), --
-    github("mangelozzi/rgflow.nvim"), --
     github("nvim-tree/nvim-web-devicons"), --
     github("nvim-lualine/lualine.nvim"), --
     github("stevearc/aerial.nvim"), --

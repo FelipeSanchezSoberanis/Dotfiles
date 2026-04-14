@@ -1,5 +1,6 @@
 local node_home = os.getenv("NODE_HOME")
 local node_modules = node_home .. "/lib/node_modules"
+local fzf_lua = require("fzf-lua")
 
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
@@ -109,8 +110,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
                        {buffer = true})
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {buffer = true})
         vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {buffer = true})
-        vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {buffer = true})
-        vim.keymap.set({"n", "x"}, "<leader>ca", vim.lsp.buf.code_action, {buffer = true})
+        vim.keymap.set("n", "<leader>gr", fzf_lua.lsp_references, {buffer = true})
+        vim.keymap.set({"n", "x"}, "<leader>ca", fzf_lua.lsp_code_actions, {buffer = true})
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, {buffer = true})
         vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, {buffer = true})
     end
