@@ -131,13 +131,7 @@ export NODE_HOME="$NVM_DIR/versions/node/$(node --version)"
 # Created by `pipx` on 2025-10-23 17:48:35
 export PATH="$PATH:/home/felipe/.local/bin"
 
-if [ -d "/home/felipe/.local/share/bash-completion/completions" ]; then
-  for file in "/home/felipe/.local/share/bash-completion/completions/"*; do
-    if [ -f "$file" ]; then
-      source "$file"
-    fi
-  done
-fi
-
 complete -F _eza ls
 complete -F _eza ll
+
+export PATH="$PATH:/home/felipe/.config/composer/vendor/bin"

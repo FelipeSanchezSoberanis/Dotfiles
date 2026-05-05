@@ -11,7 +11,8 @@ local command_per_patterns = {
     }, --
     {{"*.ino", "*.c"}, "clang-format --style=Google -i %"}, --
     {{"*.rs"}, "rustfmt %"}, --
-    {{"*.sql"}, "pg_format % -o %"} --
+    {{"*.sql"}, "pg_format % -o %"}, --
+    {{"*.php"}, "php-cs-fixer fix --rules=@PSR12 %"} --
 }
 
 for _, v in ipairs(command_per_patterns) do
