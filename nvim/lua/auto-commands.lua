@@ -1,18 +1,18 @@
 local command_per_patterns = {
-    {{"*.lua"}, "lua-format --single-quote-to-double-quote --column-limit 100 -i '%'"}, --
-    {{"*.java"}, "google-java-format -i '%'"}, --
-    {{"*.py"}, "black -l 100 '%'"}, --
-    {{"*.xml"}, "xmllint --format '%' --output '%'"}, --
+    {{"*.lua"}, "lua-format --single-quote-to-double-quote --column-limit 100 -i \"%\""}, --
+    {{"*.java"}, "google-java-format -i \"%\""}, --
+    {{"*.py"}, "black -l 100 \"%\""}, --
+    {{"*.xml"}, "xmllint --format \"%\" --output \"%\""}, --
     {
         {
             "*.vue", "*.ts", "*.json", "*.html", "*.js", "*.scss", "*.tsx", "*.mjs", "*.jsx",
             "*.css", "*.yaml", "*.yml", "*.md", "*.mdx", "*.cjs"
-        }, "prettier -w '%'"
+        }, "prettier -w \"%\""
     }, --
-    {{"*.ino", "*.c"}, "clang-format --style=Google -i '%'"}, --
-    {{"*.rs"}, "rustfmt '%'"}, --
-    {{"*.sql"}, "pg_format '%' -o '%'"}, --
-    {{"*.php"}, "php-cs-fixer fix --rules=@PSR12 '%'"} --
+    {{"*.ino", "*.c"}, "clang-format --style=Google -i \"%\""}, --
+    {{"*.rs"}, "rustfmt \"%\""}, --
+    {{"*.sql"}, "pg_format \"%\" -o \"%\""}, --
+    {{"*.php"}, "php-cs-fixer fix --rules=@PSR12 \"%\""} --
 }
 
 for _, v in ipairs(command_per_patterns) do
