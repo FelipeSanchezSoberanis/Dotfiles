@@ -51,3 +51,9 @@ vim.keymap.set("n", "<leader>cq", ":cclose<CR>")
 vim.keymap.set("x", "/", "<esc>/\\%V")
 vim.keymap.set("x", "?", "<esc>?\\%V")
 vim.keymap.set("n", "<leader>at", ":AerialToggle!<CR>")
+vim.keymap.set("n", "]t", function() require("todo-comments").jump_next() end,
+               {desc = "Next todo comment"})
+vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end,
+               {desc = "Previous todo comment"})
+vim.keymap.set("n", "<leader>tq", function() vim.cmd([[:TodoQuickFix]]) end,
+               {desc = "Open todo comments in quick fix"})

@@ -23,5 +23,8 @@ vim.pack.add({
     github("nvim-lualine/lualine.nvim"), --
     github("stevearc/aerial.nvim"), --
     github("lukas-reineke/indent-blankline.nvim"), --
-    github("ibhagwan/fzf-lua") --
+    github("ibhagwan/fzf-lua"), --
+    github("nvim-lua/plenary.nvim"), --
+    github("folke/todo-comments.nvim") --
 })
+
