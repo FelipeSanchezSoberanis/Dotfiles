@@ -6,7 +6,7 @@ local command_per_patterns = {
     {
         {
             "*.vue", "*.ts", "*.json", "*.html", "*.js", "*.scss", "*.tsx", "*.mjs", "*.jsx",
-            "*.css", "*.yaml", "*.yml", "*.md", "*.mdx", "*.cjs"
+            "*.css", "*.yaml", "*.yml", "*.md", "*.mdx", "*.cjs", "*.jsonc"
         }, "prettier -w \"%\""
     }, --
     {{"*.ino", "*.c"}, "clang-format --style=Google -i \"%\""}, --
