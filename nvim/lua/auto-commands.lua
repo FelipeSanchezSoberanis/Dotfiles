@@ -15,7 +15,7 @@ local command_per_patterns = {
         {
             "*.vue", "*.ts", "*.json", "*.html", "*.js", "*.scss", "*.tsx", "*.mjs", "*.jsx",
             "*.css", "*.yaml", "*.yml", "*.md", "*.mdx", "*.cjs", "*.jsonc"
-        }, {original_command = "prettier -w \"%\"", new_command = "prettier \"%\""}
+        }, {original_command = "prettier -w \"%\"", new_command = "prettier --stdin-filepath \"%\""}
     }, --
     {{"*.ino", "*.c"}, {original_command = "clang-format --style=Google -i \"%\""}}, --
     {{"*.rs"}, {original_command = "rustfmt \"%\""}}, --
