@@ -34,7 +34,11 @@ for _, v in ipairs(command_per_patterns) do
             vim.keymap.set("n", "<leader>ff", function()
                 if new_command ~= nil then
                     local saved_view = vim.fn.winsaveview()
-                    vim.cmd("%!" .. new_command)
+                    vim.cmd("silent %!" .. new_command)
+                    if vim.v.shell_error ~= 0 then
+                        vim.print("formatted exited with code " .. vim.v.shell_error)
+                        vim.cmd("silent undo")
+                    end
                     vim.fn.winrestview(saved_view)
                 else
                     vim.cmd("w")
