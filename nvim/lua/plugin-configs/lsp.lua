@@ -17,6 +17,10 @@ vim.lsp.config("ts_ls", {
                 location = node_modules .. "/@vue/typescript-plugin",
                 languages = {"javascript", "typescript", "vue"}
             }
+        },
+        tsserver = {
+            fallbackPath = node_modules ..
+                "/vscode-langservers-extracted/node_modules/typescript/lib/tsserver.js"
         }
     },
     filetypes = {
