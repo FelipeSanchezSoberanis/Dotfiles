@@ -25,6 +25,7 @@ vim.pack.add({
     github("lukas-reineke/indent-blankline.nvim"), --
     github("ibhagwan/fzf-lua"), --
     github("nvim-lua/plenary.nvim"), --
-    github("folke/todo-comments.nvim") --
+    github("folke/todo-comments.nvim"), --
+    github("FelipeSanchezSoberanis/copy-path") --
 })
 
