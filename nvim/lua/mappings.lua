@@ -58,3 +58,13 @@ vim.keymap.set("n", "[t", function() require("todo-comments").jump_prev() end,
                {desc = "Previous todo comment"})
 vim.keymap.set("n", "<leader>tq", function() vim.cmd([[:TodoQuickFix]]) end,
                {desc = "Open todo comments in quick fix"})
+vim.keymap.set("x", "<leader>ob", function()
+    local region = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."))
+    local text = vim.trim(table.concat(region, "\n"))
+    local command = "xdg-open '" .. text .. "'"
+    local status = os.execute(command)
+    if status == 0 then return end
+    vim.api.nvim_echo({{"Command \"" .. command .. "\" exited with status " .. status}}, true,
+                      {err = true})
+end)
+
