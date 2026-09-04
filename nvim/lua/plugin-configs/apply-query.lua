@@ -27,17 +27,19 @@ vim.api.nvim_create_user_command("ApplyQuery", function()
     local qf_list = {}
     for id, node in query:iter_captures(root, current_buf) do
         local capture_name = query.captures[id]
-        local row, col = node:range()
+        if string.find(capture_name, "_", 1, true) ~= 1 then
+            local row, col = node:range()
 
-        local text = vim.treesitter.get_node_text(node, current_buf)
-        local first_line = text:match("([^\n]+)")
+            local text = vim.treesitter.get_node_text(node, current_buf)
+            local first_line = text:match("([^\n]+)")
 
-        table.insert(qf_list, {
-            bufnr = current_buf,
-            lnum = row + 1,
-            col = col + 1,
-            text = string.format("@%s: %s", capture_name, first_line)
-        })
+            table.insert(qf_list, {
+                bufnr = current_buf,
+                lnum = row + 1,
+                col = col + 1,
+                text = string.format("@%s: %s", capture_name, first_line)
+            })
+        end
     end
 
     if #qf_list == 0 then
