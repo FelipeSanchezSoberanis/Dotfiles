@@ -102,24 +102,19 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # Use bash-completion, if available, and avoid double-sourcing
 [[ $PS1 &&
   ! ${BASH_COMPLETION_VERSINFO:-} &&
   -f /usr/share/bash-completion/bash_completion ]] &&
     . /usr/share/bash-completion/bash_completion
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
 eval "$(starship init bash)"
 
 . "$HOME/.cargo/env"
-
-alias ls="eza --icons"
-alias cat="batcat"
-alias du="dust"
-alias pip="python -m pip"
 
 neofetch
 
