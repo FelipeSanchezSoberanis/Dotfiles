@@ -130,3 +130,7 @@ complete -F _eza ls
 complete -F _eza ll
 
 export PATH="$PATH:/home/felipe/.config/composer/vendor/bin"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/felipe/.local/bin:$PATH"
