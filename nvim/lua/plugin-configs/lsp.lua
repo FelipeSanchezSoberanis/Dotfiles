@@ -5,29 +5,9 @@ local fzf_lua = require("fzf-lua")
 local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
-    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "ts_ls", "tailwindcss",
+    "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsc", "tailwindcss",
     "jdtls"
 }
-
-vim.lsp.config("ts_ls", {
-    init_options = {
-        plugins = {
-            {
-                name = "@vue/typescript-plugin",
-                location = node_modules .. "/@vue/typescript-plugin",
-                languages = {"javascript", "typescript", "vue"}
-            }
-        },
-        tsserver = {
-            fallbackPath = node_modules ..
-                "/vscode-langservers-extracted/node_modules/typescript/lib/tsserver.js"
-        }
-    },
-    filetypes = {
-        "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
-        "typescript.tsx", "vue"
-    }
-})
 
 vim.lsp.config("emmet_ls", {
     filetypes = {
