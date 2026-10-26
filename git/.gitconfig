@@ -27,3 +27,5 @@
     conflictstyle = diff3
 [diff]
     colorMoved = default
+[alias]
+    graph = !git log --graph --oneline $(git branch --format '%(refname:short)')
