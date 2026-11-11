@@ -6,7 +6,7 @@ local servers = {
     "pyright", "lua_ls", "cssls", "html", "jsonls", "bashls", "dockerls", "lemminx", "eslint",
     "texlab", "arduino_language_server", "rust_analyzer", "clangd", "phpactor",
     "kotlin_language_server", "angularls", "emmet_ls", "yamlls", "groovyls", "tsc", "tailwindcss",
-    "jdtls"
+    "jdtls", "oxlint"
 }
 
 vim.lsp.config("emmet_ls", {
