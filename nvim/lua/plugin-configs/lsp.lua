@@ -9,6 +9,16 @@ local servers = {
     "jdtls", "oxlint"
 }
 
+vim.lsp.config("oxlint", {
+    root_dir = function(bufnr, on_dir)
+        local buffer_name = vim.api.nvim_buf_get_name(bufnr)
+        local root_markers = {".oxlintrc.json", ".oxlintrc.jsonc", "oxlint.config.ts"}
+        local root_markers_found = vim.fs.find(root_markers, {path = buffer_name, upward = true})
+        if #root_markers_found <= 0 then return end
+        on_dir(vim.fs.dirname(root_markers_found[1]))
+    end
+})
+
 vim.lsp.config("emmet_ls", {
     filetypes = {
         "astro", "css", "eruby", "html", "htmldjango", "javascriptreact", "less", "pug", "sass",
